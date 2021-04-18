@@ -1,1 +1,1 @@
-input Error : character4
+ERROR) character format error (line 2)

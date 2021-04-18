@@ -10,6 +10,7 @@ data = fi.read()
 fo = open(s[:-5]+"_output.txt",'w') #output file
 
 result = ""
+lineNum= 1
 
 ####### nonZero(1..9) / Digits(0..9) / letters(a..zA..Z) / Escape 선언 #######
 nonZero = list(range(ord('1'),ord('9')+1))
@@ -26,7 +27,10 @@ Escape = "nrtb'\"\\"
 
 # 공백으로 시작하는지 판단
 def isSpace(data):
+    global lineNum
     if data[0].isspace():
+        if data[0] == '\n':
+            lineNum +=1
         return True
     return False
 
@@ -78,6 +82,7 @@ def integer_scanner(data):
     except IndexError:
         return data
 
+# <CHARACTER> 토큰 판별 scanner
 def character_scanner(data):
     global result
     try:
@@ -92,83 +97,75 @@ def character_scanner(data):
                             except IndexError:
                                 return []
                     else:
-                        result = "input Error : character1"
+                        result = "ERROR) character format error (line " + str(lineNum) +")"
                         return []
-                # if data[1] in "'\"\\":
-                #     result = "input Error : character "
-                elif data[2]=='\'':
-                    if data[1] in "'\"\\":
-                        result = "input Error : character4"
-                        return []
+                elif data[1] in "'\"\\":
+                    result = "ERROR) character format error (line " + str(lineNum) +")"
+                    return []
+
+                # (T1,single)->T2
+
+                elif data[2]=='\'': # (T2,')->T5
                     result += "<CHARACTER, " + data[1] + ">\n"
-                    # print("<CHARACTER, ",data[1], ">", sep="")
                     try:
                         return data[3:]
                     except IndexError:
                         return []
+
+                # (T2, not ') -> ERROR        
                 else:
-                    result = "input Error : character2"
-                    # fo2 = open(s[:-5]+"_outputs.txt",'w')
-                    # fo2.write("input Error : character2")
-                    # fo2.close()
-                    # print("input Error : character")
+                    result = "ERROR) character format error (line " + str(lineNum) +")"
                     return []
             except IndexError:
-                result = "input Error : character3"
-                # fo2 = open(s[:-5]+"_outputs.txt",'w')
-                # fo2.write("input Error : character3")
-                # fo2.close()
-                # print("input Error : no '")
+                result = "ERROR) character format error (line " + str(lineNum) +")"
                 return []
         return data
     except IndexError:
         return data
 
+# <LITERAL> 토큰 판별 scanner
 def literal_scanner(data):
     global result
     try:
-        if data[0]=='"':
+        if data[0]=='"': # (T0,")->T1
             try:
                 i = 1
                 while True:
-                    if data[i]!='"':
+                    if data[i]!='"': # (T1,character)->T2 / (T2,character)->T2
                         i+=1
-                    else:
+                    else: # (T1,")->T3 / (T2,")->T3
                         break
                 result += "<LITERAL, " + data[0:i+1] + ">\n"
-                # print("<LITERAL, ",data[0:i+1],">",sep="")
                 try:
                     return data[i+1:]
                 except IndexError:
                     return []
-            except IndexError:
-                result = "input Error : literal"
-                # print("input Error : literal")
+            except IndexError: # 끝날 때 까지 "가 나오지 않으면 literal format error
+                result = "ERROR) literal format error (line " + str(lineNum) +")"
                 return []
         return data
     except IndexError:
         return data
 
+# <ID> 토큰 판별 scanner
 def id_scanner(data):
     global result
     try:
-        if data[0]=='_' or data[0] in Letters:
+        if data[0]=='_' or data[0] in Letters: # (T0,_)->T1
             i = 1
             try:
-                while (data[i] in Digits) or (data[i] in Letters) or data[i]=='_':
+                while (data[i] in Digits) or (data[i] in Letters) or data[i]=='_': # (T1,_)->T1 / (T1,letter)->T1 / (T1,digit)->T1
                     i+=1
             except IndexError:
                 result += "<ID, " + data[0:i] + ">\n"
-                # print("<ID, ",data[0:i],">",sep="")
                 return []
             result += "<ID, " + data[0:i] + ">\n"
-            # print("<ID, ",data[0:i],">",sep="")
             return data[i:]
         return data
     except IndexError:
         return data
 
-# 특정 키워드인지 check (int, char, boolean, ...)
+# 특정 키워드인지 판별하는 scanner (int -> <INT>, char -> <CHAR>, boolean -> <BOOLEAN>, ...)
 def keyword_scanner(data): 
     global result
     try:
@@ -176,143 +173,119 @@ def keyword_scanner(data):
             try:
                 if isSpace(data[3:]):
                     result += "<INT>\n"
-                    # print("<INT>")
                     return data[3:]
             except IndexError:
                 result += "<INT>\n"
-                # print("<INT>")
                 return []
         elif data[0:4] == 'char':
             try:
                 if isSpace(data[4:]):
                     result += "<CHAR>\n"
-                    # print("<CHAR>")
                     return data[4:]
             except IndexError:
                 result += "<CHAR>\n"
-                    # print("<CHAR>")
                 return []
         elif data[0:7]=='boolean':
             try:
                 if isSpace(data[7:]):
                     result += "<BOOLEAN>\n"
-                    # print("<BOOLEAN>")
                     return data[7:]
             except IndexError:
                 result += "<BOOLEAN>\n"
-                # print("<BOOLEAN>")
                 return []
         elif data[0:6]=='String':
             try:
                 if isSpace(data[6:]):
                     result += "<STRING>\n"
-                    # print("<STRING>")
                     return data[6:]
             except IndexError:
                 result += "<STRING>\n"
-                # print("<STRING>")
                 return []
         elif data[0:4]=='true':
             try:
                 if isSpace(data[4:]):
                     result += "<TRUE>\n"
-                    # print("<TRUE>")
                     return data[4:]
             except IndexError:
                 result += "<TRUE>\n"
-                # print("<TRUE>")
                 return []
         elif data[0:5]=='false':
             try:
                 if isSpace(data[5:]):
                     result += "<FALSE>\n"
-                    # print("<FALSE>")
                     return data[5:] 
             except IndexError:    
                 result += "<FALSE>\n"
-                # print("<FALSE>")
                 return []
         elif data[0:2]=='if':
             try:
                 if isSpace(data[2:]):
                     result += "<IF>\n"
-                    # print("<IF>")
                     return data[2:]
             except IndexError:
                 result += "<IF>\n"
-                # print("<IF>")
                 return []
         elif data[0:4]=='else':
             try:
                 if isSpace(data[4:]):
                     result += "<ELSE>\n"
-                    # print("<ELSE>")
                     return data[4:]
             except IndexError:
                 result += "<ELSE>\n"
-                # print("<ELSE>")
                 return []
         elif data[0:5]=='while':
             try:
                 if isSpace(data[5:]):
                     result += "<WHILE>\n"
-                    # print("<WHILE>")
                     return data[5:]
             except IndexError:
                 result += "<WHILE>\n"
-                # print("<WHILE>")
                 return []
         elif data[0:5]=='class':
             try:
                 if isSpace(data[5:]):
                     result += "<CLASS>\n"
-                    # print("<CLASS>")
                     return data[5:]
             except IndexError:
                 result += "<CLASS>\n"
-                # print("<CLASS>")
                 return []
         elif data[0:6]=='return':
             try:
                 if isSpace(data[6:]):
                     result += "<RETURN>\n"
-                    # print("<RETURN>")
                     return data[6:]  
             except IndexError:
                 result += "<RETURN>\n"
-                # print("<RETURN>")
                 return []
         return data
     except IndexError:
         return data
 
+
+# <ARITH> <ASSIGN> <COMP> 토큰 판별 sscanner
 def operator_scanner(data):
     global result
     try:
         if data[0]=='+':
-            result += "<ARITH, " + data[0] + ">\n" 
-            # print("<ARITH, ",data[0],">",sep="")
+            result += "<ARITH, " + data[0] + ">\n"
             try:
                 return data[1:]
             except IndexError:
                 return []
         elif data[0]=='-':
             result += "<ARITH, " + data[0] + ">\n" 
-            # print("<ARITH, ",data[0],">",sep="")
             try:
                 return data[1:]
             except IndexError:
                 return []
         elif data[0]=='*':
             result += "<ARITH, " + data[0] + ">\n" 
-            # print("<ARITH, ",data[0],">",sep="")
             try:
                 return data[1:]
             except IndexError:
                 return []
         elif data[0]=='/':
             result += "<ARITH, " + data[0] + ">\n" 
-            # print("<ARITH, ",data[0],">",sep="")
             try:
                 return data[1:]
             except IndexError:
@@ -321,14 +294,12 @@ def operator_scanner(data):
             try:
                 if data[1]=='=':
                     result += "<COMP, " + data[0:2] + ">\n" 
-                    # print("<COMP, ",data[0:2],">",sep="")
                     try:
                         return data[2:]
                     except IndexError:
                         return []
                 else:
                     result += "<ASSIGN>\n"
-                    # print("<ASSIGN>")
                     return data[1:]
             except IndexError:
                 result += "<ASSIGN>\n"
@@ -338,41 +309,34 @@ def operator_scanner(data):
             try:
                 if data[1]=='=':
                     result += "<COMP, " + data[0:2] + ">\n"
-                    # print("<COMP, ",data[0:2],">",sep="")
                 try:
                     return data[2:]
                 except IndexError:
                     return []
                 else:
                     result += "<COMP, " + data[0] + ">\n"
-                    # print("<COMP, ",data[0],">",sep="")
                     return data[1:]
             except IndexError:
                 result += "<COMP, " + data[0] + ">\n"
-                # print("<COMP, ",data[0],">",sep="")
                 return []
         elif data[0]=='>':
             try:
                 if data[1]=='=':
                     result += "<COMP, " + data[0:2] + ">\n"
-                    # print("<COMP, ",data[0:2],">",sep="")
                 try:
                     return data[2:]
                 except IndexError:
                     return []
                 else:
                     result += "<COMP, " + data[0] + ">\n"
-                    # print("<COMP, ",data[0],">",sep="")
                     return data[1:]
             except IndexError:
                 result += "<COMP, " + data[0] + ">\n"
-                # print("<COMP, ",data[0],">",sep="")
                 return []
         elif data[0]=='!':
             try:
                 if data[1]=='=':
                     result += "<COMP, " + data[0:2] + ">\n"
-                    # print("<COMP, ",data[0:2],">",sep="")
                 try:
                     return data[2:]
                 except IndexError:
