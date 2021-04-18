@@ -262,7 +262,7 @@ def keyword_scanner(data):
         return data
 
 
-# <ARITH> <ASSIGN> <COMP> 토큰 판별 sscanner
+# <ARITH> <ASSIGN> <COMP> 토큰 판별 scanner
 def operator_scanner(data):
     global result
     try:
@@ -308,10 +308,10 @@ def operator_scanner(data):
             try:
                 if data[1]=='=': # <COMP> (T1,=)->T7
                     result += "<COMP, " + data[0:2] + ">\n"
-                try:
-                    return data[2:]
-                except IndexError:
-                    return []
+                    try:
+                        return data[2:]
+                    except IndexError:
+                        return []
                 else: # <COMP> T1
                     result += "<COMP, " + data[0] + ">\n"
                     return data[1:]
@@ -322,10 +322,10 @@ def operator_scanner(data):
             try:
                 if data[1]=='=': # <COMP> (T2,=)->T7
                     result += "<COMP, " + data[0:2] + ">\n"
-                try:
-                    return data[2:]
-                except IndexError:
-                    return []
+                    try:
+                        return data[2:]
+                    except IndexError:
+                        return []
                 else: # <COMP> T2
                     result += "<COMP, " + data[0] + ">\n"
                     return data[1:]
@@ -350,6 +350,7 @@ def operator_scanner(data):
     except IndexError:
         return data
 
+# <SEMI> 토큰 판별 scanner
 def semi_scanner(data):
     global result
     try:
