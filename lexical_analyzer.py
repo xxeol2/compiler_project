@@ -1,6 +1,14 @@
 # 20193574 정설희
 # compiler - lexical analyzer(java)
 
+
+####### 파일 명 입력받고 파일 열기 #######
+s = input()
+fi = open(s,'r') #input file
+fo = open(s[:-5]+"_output.txt",'w') #output file
+
+
+####### nonZero(1..9) / Digits(0..9) / letters(a..zA..Z) / Escape 선언 #######
 nonZero = list(range(ord('1'),ord('9')+1))
 for i in range(0,len(nonZero)):
     nonZero[i] = chr(nonZero[i])
@@ -11,6 +19,7 @@ Letters = list(range(ord('a'),ord('z')+1)) + list(range(ord('A'),ord('Z')+1))
 for i in range(0,len(Letters)):
     Letters[i] = chr(Letters[i])
 
+Escape = "nrtb'\"\\"
 
 # 공백으로 시작하는지 판단
 def isSpace(data):
@@ -68,8 +77,19 @@ def character_scanner(data):
     try:
         if data[0]=='\'':
             try:
-                if data[2]=='\'':
-                    print("<CHARACTER, ",data[0:3], ">", sep="")
+                if data[1]=='\\':
+                    if data[2] in Escape:
+                        if data[3] == '\'':
+                            print("<CHARACTER, ", data[1:3],">",sep="")
+                            try:
+                                return data[4:]
+                            except IndexError:
+                                return []
+                    else:
+                        print("input Error : no character")
+                        return []
+                elif data[2]=='\'':
+                    print("<CHARACTER, ",data[1], ">", sep="")
                     try:
                         return data[3:]
                     except IndexError:
@@ -386,12 +406,11 @@ def test(data):
 # data = input()
 # test(data)
 
-s = input()
-fi = open(s,'r')
-fo = open(s[:-5]+"_output.txt",'w')
+
 data = fi.read()
 fo.write(data)
 test(data)
+fo.write("??")
 
 # f = open('test.java','r')
 
