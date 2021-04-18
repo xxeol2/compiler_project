@@ -4,9 +4,12 @@
 
 ####### 파일 명 입력받고 파일 열기 #######
 s = input()
-fi = open(s,'r') #input file
+try:
+    fi = open(s,'r') #input file
+except FileNotFoundError:
+    print('파일이 없습니다.')
+    quit()
 data = fi.read()
-
 fo = open(s[:-5]+"_output.txt",'w') #output file
 
 result = "" #ouput txt에 쓰여질 문자열
@@ -27,16 +30,16 @@ Escape = "nrtb'\"\\"
 
 # 공백으로 시작하는지 판단
 def isSpace(data):
-    global lineNum
     if data[0].isspace():
-        if data[0] == '\n':
-            lineNum +=1
         return True
     return False
 
 # 공백 잘라주는 scanner
 def whiteSpace_scanner(data):
+    global lineNum
     if isSpace(data):
+        if data[0] == '\n':
+            lineNum +=1
         try:
             return data[1:]
         except IndexError:
@@ -423,18 +426,18 @@ def comma_scanner(data):
         return data
 
 
-def test(data):
+def lex(data):
     global result
     data = comma_scanner(bracket_scanner(semi_scanner(operator_scanner(id_scanner(literal_scanner(character_scanner(integer_scanner(keyword_scanner(whiteSpace_scanner(data))))))))))
     try:
-        test(data)
+        lex(data)
     except IndexError:
         return 0
     except:
         result =  "ERROR) input error (line " + str(lineNum) +")"
 
 
-test(data)
+lex(data)
 fo.write(result)
 fi.close()
 fo.close()

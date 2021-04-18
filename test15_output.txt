@@ -1,0 +1,19 @@
+<INTEGER, 5>
+<ARITH, ->
+<INTEGER, -10>
+<INTEGER, 4>
+<ARITH, +>
+<INTEGER, -8>
+<ID, string>
+<STRING>
+<INTEGER, 10>
+<COMP, <>
+<ID, k>
+<ID, a>
+<COMP, <=>
+<INTEGER, 8>
+<ID, b>
+<COMP, ==>
+<ID, c>
+<ID, __func___>
+<TRUE>

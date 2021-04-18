@@ -1,0 +1,17 @@
+<ID, int>
+<LARR>
+<RARR>
+<ID, odds>
+<ASSIGN>
+<LSCOPE>
+<INTEGER, 1>
+<COMMA>
+<INTEGER, 3>
+<COMMA>
+<INTEGER, 5>
+<COMMA>
+<INTEGER, 7>
+<COMMA>
+<INTEGER, 9>
+<RSCOPE>
+<SEMI>

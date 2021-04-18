@@ -1,1 +1,1 @@
-ERROR) input error (line 1)
+ERROR) comparison operator format error (line 5)

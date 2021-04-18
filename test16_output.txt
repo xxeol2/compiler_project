@@ -1,0 +1,11 @@
+<INT>
+<ID, ab>
+<LPAREN>
+<INT>
+<ID, v>
+<RPAREN>
+<LSCOPE>
+<RETURN>
+<INTEGER, 0>
+<SEMI>
+<RSCOPE>

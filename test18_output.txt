@@ -1,0 +1,29 @@
+<ID, String>
+<LARR>
+<RARR>
+<ID, weeks>
+<ASSIGN>
+<LSCOPE>
+<LITERAL, "mon">
+<COMMA>
+<LITERAL, "tue">
+<COMMA>
+<LITERAL, "wed">
+<COMMA>
+<LITERAL, "thu">
+<RSCOPE>
+<SEMI>
+<ID, weeks>
+<LARR>
+<INTEGER, 0>
+<RARR>
+<ASSIGN>
+<LITERAL, "fri">
+<SEMI>
+<ID, weeks>
+<LARR>
+<INTEGER, 1>
+<RARR>
+<ASSIGN>
+<LITERAL, "sat">
+<SEMI>
