@@ -266,80 +266,82 @@ def keyword_scanner(data):
 def operator_scanner(data):
     global result
     try:
-        if data[0]=='+':
+        if data[0]=='+': # <ARITH> (T0,+)->T1
             result += "<ARITH, " + data[0] + ">\n"
             try:
                 return data[1:]
             except IndexError:
                 return []
-        elif data[0]=='-':
+        elif data[0]=='-': # <ARITH> (T0,-)->T2
             result += "<ARITH, " + data[0] + ">\n" 
             try:
                 return data[1:]
             except IndexError:
                 return []
-        elif data[0]=='*':
+        elif data[0]=='*': # <ARITH> (T0,*)->T3
             result += "<ARITH, " + data[0] + ">\n" 
             try:
                 return data[1:]
             except IndexError:
                 return []
-        elif data[0]=='/':
+        elif data[0]=='/': # <ARITH> (T0,/)->T4
             result += "<ARITH, " + data[0] + ">\n" 
             try:
                 return data[1:]
             except IndexError:
                 return []
-        elif data[0]=='=':
+        elif data[0]=='=': # <COMP> (T0,=)->T3 / <ASSIGN> (T0,=)->T1
             try:
-                if data[1]=='=':
+                if data[1]=='=': # <COMP> (T3,=)->T4
                     result += "<COMP, " + data[0:2] + ">\n" 
                     try:
                         return data[2:]
                     except IndexError:
                         return []
-                else:
+                else: # <ASSIGN> T1
                     result += "<ASSIGN>\n"
                     return data[1:]
-            except IndexError:
+            except IndexError: # <ASSIGN> T1
                 result += "<ASSIGN>\n"
-                # print("<ASSIGN>")
                 return []
-        elif data[0]=='<':
+        elif data[0]=='<': # <COMP> (T0,<)->T1
             try:
-                if data[1]=='=':
+                if data[1]=='=': # <COMP> (T1,=)->T7
                     result += "<COMP, " + data[0:2] + ">\n"
                 try:
                     return data[2:]
                 except IndexError:
                     return []
-                else:
+                else: # <COMP> T1
                     result += "<COMP, " + data[0] + ">\n"
                     return data[1:]
-            except IndexError:
+            except IndexError: # <COMP> T1
                 result += "<COMP, " + data[0] + ">\n"
                 return []
-        elif data[0]=='>':
+        elif data[0]=='>': # <COMP> (T0,>)->T2
             try:
-                if data[1]=='=':
+                if data[1]=='=': # <COMP> (T2,=)->T7
                     result += "<COMP, " + data[0:2] + ">\n"
                 try:
                     return data[2:]
                 except IndexError:
                     return []
-                else:
+                else: # <COMP> T2
                     result += "<COMP, " + data[0] + ">\n"
                     return data[1:]
-            except IndexError:
+            except IndexError: # <COMP> T2
                 result += "<COMP, " + data[0] + ">\n"
                 return []
-        elif data[0]=='!':
+        elif data[0]=='!': # <COMP> (T0,!)->T5
             try:
-                if data[1]=='=':
+                if data[1]=='=': # <COMP> (T5,=)->T6
                     result += "<COMP, " + data[0:2] + ">\n"
-                try:
-                    return data[2:]
-                except IndexError:
+                    try:
+                        return data[2:]
+                    except IndexError:
+                        return []
+                else: # <COMP> T5 format error
+                    result = result = "ERROR) comparison operator format error (line " + str(lineNum) +")"
                     return []
             except IndexError:
                 print("input Error : !")
