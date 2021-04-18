@@ -387,9 +387,10 @@ def test(data):
 # test(data)
 
 s = input()
-f = open(s,'r')
-
-data = f.read()
+fi = open(s,'r')
+fo = open(s[:-5]+"_output.txt",'w')
+data = fi.read()
+fo.write(data)
 test(data)
 
 # f = open('test.java','r')
