@@ -5,8 +5,11 @@
 ####### 파일 명 입력받고 파일 열기 #######
 s = input()
 fi = open(s,'r') #input file
+data = fi.read()
+
 fo = open(s[:-5]+"_output.txt",'w') #output file
 
+result = ""
 
 ####### nonZero(1..9) / Digits(0..9) / letters(a..zA..Z) / Escape 선언 #######
 nonZero = list(range(ord('1'),ord('9')+1))
@@ -39,13 +42,17 @@ def integer_scanner(data):
     try:       
         if data[0]=='0':
             try:
-                print("<INTEGER, ",data[0],">",sep="")
+                tmp = "<INTEGER, " + data[0] + ">\n"
+                fo.write(tmp)
+                # print("<INTEGER, ",data[0],">",sep="")
                 try:
                     return data[1:]
                 except IndexError:
                     return []
             except IndexError:
-                print("<INTEGER, ",data[0],">",sep="")
+                tmp = "<INTEGER, " + data[0] + ">\n"
+                fo.write(tmp)
+                # print("<INTEGER, ",data[0],">",sep="")
                 return []
         elif data[0] in nonZero:
             i = 1
@@ -53,9 +60,13 @@ def integer_scanner(data):
                 while data[i] in Digits:
                     i+=1
             except IndexError:
-                print("<INTEGER, ",data[0:i],">",sep="")
+                tmp = "<INTEGER, " + data[0:i] + ">\n"
+                fo.write(tmp)
+                # print("<INTEGER, ",data[0:i],">",sep="")
                 return []
-            print("<INTEGER, ",data[0:i],">",sep="")
+            tmp = "<INTEGER, " + data[0:i] + ">\n"
+            fo.write(tmp)
+            # print("<INTEGER, ",data[0:i],">",sep="")
             return data[i:]
         
         elif data[0]=='-':
@@ -65,9 +76,13 @@ def integer_scanner(data):
                     while data[i] in Digits:
                         i += 1
                 except IndexError:
-                    print("<INTEGER, ",data[0:i],">",sep="")
+                    tmp = "<INTEGER, " + data[0:i] + ">\n"
+                    fo.write(tmp)
+                    # print("<INTEGER, ",data[0:i],">",sep="")
                     return []
-                print("<INTEGER, ",data[0:i],">",sep="")
+                tmp = "<INTEGER, " + data[0:i] + ">\n"
+                fo.write(tmp)
+                # print("<INTEGER, ",data[0:i],">",sep="")
                 return data[i:]
         return data
     except IndexError:
@@ -80,15 +95,21 @@ def character_scanner(data):
                 if data[1]=='\\':
                     if data[2] in Escape:
                         if data[3] == '\'':
-                            print("<CHARACTER, ", data[1:3],">",sep="")
+                            tmp = "<CHARACTER, " + data[1:3] + ">\n"
+                            fo.write(tmp)
+                            # print("<CHARACTER, ", data[1:3],">",sep="")
                             try:
                                 return data[4:]
                             except IndexError:
                                 return []
                     else:
-                        print("input Error : no character")
+                        # fo.close()
+                        # fo = open(s[:-5]+"_output.txt",'w')
+                        fo.write("input Error : no Character")
+                        # print("input Error : no character")
                         return []
                 elif data[2]=='\'':
+
                     print("<CHARACTER, ",data[1], ">", sep="")
                     try:
                         return data[3:]
@@ -406,8 +427,6 @@ def test(data):
 # data = input()
 # test(data)
 
-
-data = fi.read()
 fo.write(data)
 test(data)
 fo.write("??")
