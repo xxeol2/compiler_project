@@ -39,19 +39,22 @@ def whiteSpace_scanner(data):
     return data
 
 def integer_scanner(data):
+    global result
     try:       
         if data[0]=='0':
             try:
-                tmp = "<INTEGER, " + data[0] + ">\n"
-                fo.write(tmp)
+                result += "<INTEGER, " + data[0] + ">\n"
+                # tmp = "<INTEGER, " + data[0] + ">\n"
+                # fo.write(tmp)
                 # print("<INTEGER, ",data[0],">",sep="")
                 try:
                     return data[1:]
                 except IndexError:
                     return []
             except IndexError:
-                tmp = "<INTEGER, " + data[0] + ">\n"
-                fo.write(tmp)
+                result += "<INTEGER, " + data[0] + ">\n"
+                # tmp = "<INTEGER, " + data[0] + ">\n"
+                # fo.write(tmp)
                 # print("<INTEGER, ",data[0],">",sep="")
                 return []
         elif data[0] in nonZero:
@@ -60,12 +63,14 @@ def integer_scanner(data):
                 while data[i] in Digits:
                     i+=1
             except IndexError:
-                tmp = "<INTEGER, " + data[0:i] + ">\n"
-                fo.write(tmp)
+                result += "<INTEGER, " + data[0:i] + ">\n"
+                # tmp = "<INTEGER, " + data[0:i] + ">\n"
+                # fo.write(tmp)
                 # print("<INTEGER, ",data[0:i],">",sep="")
                 return []
-            tmp = "<INTEGER, " + data[0:i] + ">\n"
-            fo.write(tmp)
+            result += "<INTEGER, " + data[0:i] + ">\n"
+            # tmp = "<INTEGER, " + data[0:i] + ">\n"
+            # fo.write(tmp)
             # print("<INTEGER, ",data[0:i],">",sep="")
             return data[i:]
         
@@ -76,12 +81,14 @@ def integer_scanner(data):
                     while data[i] in Digits:
                         i += 1
                 except IndexError:
-                    tmp = "<INTEGER, " + data[0:i] + ">\n"
-                    fo.write(tmp)
+                    result += "<INTEGER, " + data[0:i] + ">\n"
+                    # tmp = "<INTEGER, " + data[0:i] + ">\n"
+                    # fo.write(tmp)
                     # print("<INTEGER, ",data[0:i],">",sep="")
                     return []
-                tmp = "<INTEGER, " + data[0:i] + ">\n"
-                fo.write(tmp)
+                result += "<INTEGER, " + data[0:i] + ">\n"
+                # tmp = "<INTEGER, " + data[0:i] + ">\n"
+                # fo.write(tmp)
                 # print("<INTEGER, ",data[0:i],">",sep="")
                 return data[i:]
         return data
@@ -89,43 +96,52 @@ def integer_scanner(data):
         return data
 
 def character_scanner(data):
+    global result
     try:
         if data[0]=='\'':
             try:
                 if data[1]=='\\':
                     if data[2] in Escape:
                         if data[3] == '\'':
-                            tmp = "<CHARACTER, " + data[1:3] + ">\n"
-                            fo.write(tmp)
+                            result += "<CHARACTER, " + data[1:3] + ">\n"
+                            # tmp = "<CHARACTER, " + data[1:3] + ">\n"
+                            # fo.write(tmp)
                             # print("<CHARACTER, ", data[1:3],">",sep="")
                             try:
                                 return data[4:]
                             except IndexError:
                                 return []
                     else:
-                        # fo.close()
-                        # fo = open(s[:-5]+"_output.txt",'w')
-                        fo.write("input Error : no Character")
+                        result = "input Error : character1"
                         # print("input Error : no character")
                         return []
                 elif data[2]=='\'':
-
-                    print("<CHARACTER, ",data[1], ">", sep="")
+                    result += "<CHARACTER, " + data[1] + ">\n"
+                    # print("<CHARACTER, ",data[1], ">", sep="")
                     try:
                         return data[3:]
                     except IndexError:
                         return []
                 else:
-                    print("input Error : character")
+                    result = "input Error : character2"
+                    # fo2 = open(s[:-5]+"_outputs.txt",'w')
+                    # fo2.write("input Error : character2")
+                    # fo2.close()
+                    # print("input Error : character")
                     return []
             except IndexError:
-                print("input Error : no '")
+                result = "input Error : character3"
+                # fo2 = open(s[:-5]+"_outputs.txt",'w')
+                # fo2.write("input Error : character3")
+                # fo2.close()
+                # print("input Error : no '")
                 return []
         return data
     except IndexError:
         return data
 
 def literal_scanner(data):
+    global result
     try:
         if data[0]=='"':
             try:
@@ -135,19 +151,22 @@ def literal_scanner(data):
                         i+=1
                     else:
                         break
-                print("<LITERAL, ",data[0:i+1],">",sep="")
+                result += "<LITERAL, " + data[0:i+1] + ">\n"
+                # print("<LITERAL, ",data[0:i+1],">",sep="")
                 try:
                     return data[i+1:]
                 except IndexError:
                     return []
             except IndexError:
-                print("input Error : literal")
+                result = "input Error : literal"
+                # print("input Error : literal")
                 return []
         return data
     except IndexError:
         return data
 
 def id_scanner(data):
+    global result
     try:
         if data[0]=='_' or data[0] in Letters:
             i = 1
@@ -155,7 +174,8 @@ def id_scanner(data):
                 while (data[i] in Digits) or (data[i] in Letters) or data[i]=='_':
                     i+=1
             except IndexError:
-                print("<ID, ",data[0:i],">",sep="")
+                result += "<ID, " + data[0:i] + ">\n"
+                # print("<ID, ",data[0:i],">",sep="")
                 return []
             print("<ID, ",data[0:i],">",sep="")
             return data[i:]
@@ -165,121 +185,149 @@ def id_scanner(data):
 
 # 특정 키워드인지 check (int, char, boolean, ...)
 def keyword_scanner(data): 
+    global result
     try:
         if data[0:3] == 'int':
             try:
                 if isSpace(data[3:]):
-                    print("<INT>")
+                    result += "<INT>\n"
+                    # print("<INT>")
                     return data[3:]
             except IndexError:
-                print("<INT>")
+                result += "<INT>\n"
+                # print("<INT>")
                 return []
         elif data[0:4] == 'char':
             try:
                 if isSpace(data[4:]):
-                    print("<CHAR>")
+                    result += "<CHAR>\n"
+                    # print("<CHAR>")
                     return data[4:]
             except IndexError:
-                print("<CHAR>")
+                result += "<CHAR>\n"
+                    # print("<CHAR>")
                 return []
         elif data[0:7]=='boolean':
             try:
                 if isSpace(data[7:]):
-                    print("<BOOLEAN>")
+                    result += "<BOOLEAN>\n"
+                    # print("<BOOLEAN>")
                     return data[7:]
             except IndexError:
-                print("<BOOLEAN>")
+                result += "<BOOLEAN>\n"
+                # print("<BOOLEAN>")
                 return []
         elif data[0:6]=='String':
             try:
                 if isSpace(data[6:]):
-                    print("<STRING>")
+                    result += "<STRING>\n"
+                    # print("<STRING>")
                     return data[6:]
             except IndexError:
-                print("<STRING>")
+                result += "<STRING>\n"
+                # print("<STRING>")
                 return []
         elif data[0:4]=='true':
             try:
                 if isSpace(data[4:]):
-                    print("<TRUE>")
+                    result += "<TRUE>\n"
+                    # print("<TRUE>")
                     return data[4:]
             except IndexError:
-                print("<TRUE>")
+                result += "<TRUE>\n"
+                # print("<TRUE>")
                 return []
         elif data[0:5]=='false':
             try:
                 if isSpace(data[5:]):
-                    print("<FALSE>")
+                    result += "<FALSE>\n"
+                    # print("<FALSE>")
                     return data[5:] 
             except IndexError:    
-                print("<FALSE>")
+                result += "<FALSE>\n"
+                # print("<FALSE>")
                 return []
         elif data[0:2]=='if':
             try:
                 if isSpace(data[2:]):
-                    print("<IF>")
+                    result += "<IF>\n"
+                    # print("<IF>")
                     return data[2:]
             except IndexError:
-                print("<IF>")
+                result += "<IF>\n"
+                # print("<IF>")
                 return []
         elif data[0:4]=='else':
             try:
                 if isSpace(data[4:]):
-                    print("<ELSE>")
+                    result += "<ELSE>\n"
+                    # print("<ELSE>")
                     return data[4:]
             except IndexError:
-                print("<ELSE>")
+                result += "<ELSE>\n"
+                # print("<ELSE>")
                 return []
         elif data[0:5]=='while':
             try:
                 if isSpace(data[5:]):
-                    print("<WHILE>")
+                    result += "<WHILE>\n"
+                    # print("<WHILE>")
                     return data[5:]
             except IndexError:
-                print("<WHILE>")
+                result += "<WHILE>\n"
+                # print("<WHILE>")
                 return []
         elif data[0:5]=='class':
             try:
                 if isSpace(data[5:]):
-                    print("<CLASS>")
+                    result += "<CLASS>\n"
+                    # print("<CLASS>")
                     return data[5:]
             except IndexError:
-                print("<CLASS>")
+                result += "<CLASS>\n"
+                # print("<CLASS>")
                 return []
         elif data[0:6]=='return':
             try:
                 if isSpace(data[6:]):
-                    print("<RETURN>")
+                    result += "<RETURN>\n"
+                    # print("<RETURN>")
                     return data[6:]  
             except IndexError:
-                print("<RETURN>")
+                result += "<RETURN>\n"
+                # print("<RETURN>")
                 return []
         return data
     except IndexError:
         return data
 
 def operator_scanner(data):
+    global result
     try:
         if data[0]=='+':
-            print("<ARITH, ",data[0],">",sep="")
+            result += "<ARITH, " + data[0] + ">\n" 
+            # print("<ARITH, ",data[0],">",sep="")
             try:
                 return data[1:]
             except IndexError:
                 return []
         elif data[0]=='-':
-            print("<ARITH, ",data[0],">",sep="")
+            result += "<ARITH, " + data[0] + ">\n" 
+            # print("<ARITH, ",data[0],">",sep="")
             try:
                 return data[1:]
             except IndexError:
                 return []
         elif data[0]=='*':
-            print("<ARITH, ",data[0],">",sep="")
+            result += "<ARITH, " + data[0] + ">\n" 
+            # print("<ARITH, ",data[0],">",sep="")
             try:
                 return data[1:]
             except IndexError:
                 return []
         elif data[0]=='/':
-            print("<ARITH, ",data[0],">",sep="")
+            result += "<ARITH, " + data[0] + ">\n" 
+            # print("<ARITH, ",data[0],">",sep="")
             try:
                 return data[1:]
             except IndexError:
@@ -287,49 +335,59 @@ def operator_scanner(data):
         elif data[0]=='=':
             try:
                 if data[1]=='=':
-                    print("<COMP, ",data[0:2],">",sep="")
+                    result += "<COMP, " + data[0:2] + ">\n" 
+                    # print("<COMP, ",data[0:2],">",sep="")
                     try:
                         return data[2:]
                     except IndexError:
                         return []
                 else:
-                    print("<ASSIGN>")
+                    result += "<ASSIGN>\n"
+                    # print("<ASSIGN>")
                     return data[1:]
             except IndexError:
-                print("<ASSIGN>")
+                result += "<ASSIGN>\n"
+                # print("<ASSIGN>")
                 return []
         elif data[0]=='<':
             try:
                 if data[1]=='=':
-                    print("<COMP, ",data[0:2],">",sep="")
+                    result += "<COMP, " + data[0:2] + ">\n"
+                    # print("<COMP, ",data[0:2],">",sep="")
                 try:
                     return data[2:]
                 except IndexError:
                     return []
                 else:
-                    print("<COMP, ",data[0],">",sep="")
+                    result += "<COMP, " + data[0] + ">\n"
+                    # print("<COMP, ",data[0],">",sep="")
                     return data[1:]
             except IndexError:
-                print("<COMP, ",data[0],">",sep="")
+                result += "<COMP, " + data[0] + ">\n"
+                # print("<COMP, ",data[0],">",sep="")
                 return []
         elif data[0]=='>':
             try:
                 if data[1]=='=':
-                    print("<COMP, ",data[0:2],">",sep="")
+                    result += "<COMP, " + data[0:2] + ">\n"
+                    # print("<COMP, ",data[0:2],">",sep="")
                 try:
                     return data[2:]
                 except IndexError:
                     return []
                 else:
-                    print("<COMP, ",data[0],">",sep="")
+                    result += "<COMP, " + data[0] + ">\n"
+                    # print("<COMP, ",data[0],">",sep="")
                     return data[1:]
             except IndexError:
-                print("<COMP, ",data[0],">",sep="")
+                result += "<COMP, " + data[0] + ">\n"
+                # print("<COMP, ",data[0],">",sep="")
                 return []
         elif data[0]=='!':
             try:
                 if data[1]=='=':
-                    print("<COMP, ",data[0:2],">",sep="")
+                    result += "<COMP, " + data[0:2] + ">\n"
+                    # print("<COMP, ",data[0:2],">",sep="")
                 try:
                     return data[2:]
                 except IndexError:
@@ -342,9 +400,11 @@ def operator_scanner(data):
         return data
 
 def semi_scanner(data):
+    global result
     try:
         if data[0]==';':
-            print("<SEMI>")
+            result += "<SEMI>\n"
+            # print("<SEMI>")
             try:
                 return data[1:]
             except IndexError:
@@ -355,39 +415,46 @@ def semi_scanner(data):
 
 
 def bracket_scanner(data):
+    global result
     try:
         if data[0]=='{':
-            print("<LSCOPE>")
+            result += "<LSCOPE>\n"
+            # print("<LSCOPE>")
             try:
                 return data[1:]
             except IndexError:
                 return []
         elif data[0]=='}':
-            print("<RSCOPE>")
+            result += "<RSCOPE>\n"
+            # print("<RSCOPE>")
             try:
                 return data[1:]
             except IndexError:
                 return []
         elif data[0]=='(':
-            print("<LPAREN>")
+            result += "<LPAREN>\n"
+            # print("<LPAREN>")
             try:
                 return data[1:]
             except IndexError:
                 return []
         elif data[0]==')':
-            print("<RPAREN>")
+            result += "<RPAREN>\n"
+            # print("<RPAREN>")
             try:
                 return data[1:]
             except IndexError:
                 return []
         elif data[0]=='[':
-            print("<LARR>")
+            result += "<LARR>\n"
+            # print("<LARR>")
             try:
                 return data[1:]
             except IndexError:
                 return []
         elif data[0]==']':
-            print("<RARR>")
+            result += "<RARR>\n"
+            # print("<RARR>")
             try:
                 return data[1:]
             except IndexError:
@@ -398,9 +465,11 @@ def bracket_scanner(data):
 
 
 def comma_scanner(data):
+    global result
     try:
         if data[0]==',':
-            print("<COMMA>")
+            result += "<COMMA>\n"
+            # print("<COMMA>")
             try:
                 return data[1:]
             except IndexError:
@@ -427,9 +496,10 @@ def test(data):
 # data = input()
 # test(data)
 
-fo.write(data)
 test(data)
-fo.write("??")
+fo.write(result)
+fi.close()
+fo.close()
 
 # f = open('test.java','r')
 
