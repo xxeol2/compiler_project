@@ -11,6 +11,7 @@ Letters = list(range(ord('a'),ord('z')+1)) + list(range(ord('A'),ord('Z')+1))
 for i in range(0,len(Letters)):
     Letters[i] = chr(Letters[i])
 
+
 # 공백으로 시작하는지 판단
 def isSpace(data):
     if data[0].isspace():
@@ -29,13 +30,13 @@ def integer_scanner(data):
     try:       
         if data[0]=='0':
             try:
-                print("<INTEGER> |",data[0])
+                print("<INTEGER, ",data[0],">",sep="")
                 try:
                     return data[1:]
                 except IndexError:
                     return []
             except IndexError:
-                print("<INTEGER> |",data[0])
+                print("<INTEGER, ",data[0],">",sep="")
                 return []
         elif data[0] in nonZero:
             i = 1
@@ -43,9 +44,9 @@ def integer_scanner(data):
                 while data[i] in Digits:
                     i+=1
             except IndexError:
-                print("<INTEGER> |",data[0:i])
+                print("<INTEGER, ",data[0:i],">",sep="")
                 return []
-            print("<INTEGER> |",data[0:i])
+            print("<INTEGER, ",data[0:i],">",sep="")
             return data[i:]
         
         elif data[0]=='-':
@@ -55,9 +56,9 @@ def integer_scanner(data):
                     while data[i] in Digits:
                         i += 1
                 except IndexError:
-                    print("<INTEGER> |",data[0:i])
+                    print("<INTEGER, ",data[0:i],">",sep="")
                     return []
-                print("<INTEGER> |",data[0:i])
+                print("<INTEGER, ",data[0:i],">",sep="")
                 return data[i:]
         return data
     except IndexError:
@@ -68,7 +69,7 @@ def character_scanner(data):
         if data[0]=='\'':
             try:
                 if data[2]=='\'':
-                    print("<CHARACTER> |",data[0:3])
+                    print("<CHARACTER, ",data[0:3], ">", sep="")
                     try:
                         return data[3:]
                     except IndexError:
@@ -93,7 +94,7 @@ def literal_scanner(data):
                         i+=1
                     else:
                         break
-                print("<LITERAL>|",data[0:i+1])
+                print("<LITERAL, ",data[0:i+1],">",sep="")
                 try:
                     return data[i+1:]
                 except IndexError:
@@ -113,9 +114,9 @@ def id_scanner(data):
                 while (data[i] in Digits) or (data[i] in Letters) or data[i]=='_':
                     i+=1
             except IndexError:
-                print("<ID> |",data[0:i])
+                print("<ID, ",data[0:i],">",sep="")
                 return []
-            print("<ID> |",data[0:i])
+            print("<ID, ",data[0:i],">",sep="")
             return data[i:]
         return data
     except IndexError:
@@ -219,25 +220,25 @@ def keyword_scanner(data):
 def operator_scanner(data):
     try:
         if data[0]=='+':
-            print("<ARITH> |",data[0])
+            print("<ARITH, ",data[0],">",sep="")
             try:
                 return data[1:]
             except IndexError:
                 return []
         elif data[0]=='-':
-            print("<ARITH> |",data[0])
+            print("<ARITH, ",data[0],">",sep="")
             try:
                 return data[1:]
             except IndexError:
                 return []
         elif data[0]=='*':
-            print("<ARITH> |",data[0])
+            print("<ARITH, ",data[0],">",sep="")
             try:
                 return data[1:]
             except IndexError:
                 return []
         elif data[0]=='/':
-            print("<ARITH> |",data[0])
+            print("<ARITH, ",data[0],">",sep="")
             try:
                 return data[1:]
             except IndexError:
@@ -245,7 +246,7 @@ def operator_scanner(data):
         elif data[0]=='=':
             try:
                 if data[1]=='=':
-                    print("<COMP> |",data[0:2])
+                    print("<COMP, ",data[0:2],">",sep="")
                     try:
                         return data[2:]
                     except IndexError:
@@ -259,35 +260,35 @@ def operator_scanner(data):
         elif data[0]=='<':
             try:
                 if data[1]=='=':
-                    print("<COMP> |",data[0:2])
+                    print("<COMP, ",data[0:2],">",sep="")
                 try:
                     return data[2:]
                 except IndexError:
                     return []
                 else:
-                    print("<COMP> |",data[0])
+                    print("<COMP, ",data[0],">",sep="")
                     return data[1:]
             except IndexError:
-                print("<COMP> |",data[0])
+                print("<COMP, ",data[0],">",sep="")
                 return []
         elif data[0]=='>':
             try:
                 if data[1]=='=':
-                    print("<COMP> |",data[0:2])
+                    print("<COMP, ",data[0:2],">",sep="")
                 try:
                     return data[2:]
                 except IndexError:
                     return []
                 else:
-                    print("<COMP> |",data[0])
+                    print("<COMP, ",data[0],">",sep="")
                     return data[1:]
             except IndexError:
-                print("<COMP> |",data[0])
+                print("<COMP, ",data[0],">",sep="")
                 return []
         elif data[0]=='!':
             try:
                 if data[1]=='=':
-                    print("<COMP> |",data[0:2])
+                    print("<COMP, ",data[0:2],">",sep="")
                 try:
                     return data[2:]
                 except IndexError:
@@ -381,8 +382,26 @@ def test(data):
         return 0
 
 
-data = input()
+
+# data = input()
+# test(data)
+
+s = input()
+f = open(s,'r')
+
+data = f.read()
 test(data)
+
+# f = open('test.java','r')
+
+# def main():
+#     data = input()
+#     test(data)
+
+# if __name__ == "__main__":
+#     main()
+
+
 
 #integer_scanner(data)
 #character_scanner(data)
