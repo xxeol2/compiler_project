@@ -38,59 +38,42 @@ def whiteSpace_scanner(data):
             return []
     return data
 
+# <INTEGER> 토큰 판별 scanner
 def integer_scanner(data):
     global result
     try:       
-        if data[0]=='0':
+        if data[0]=='0': #(T0,0)->T1
+            result += "<INTEGER, " + data[0] + ">\n"
             try:
-                result += "<INTEGER, " + data[0] + ">\n"
-                # tmp = "<INTEGER, " + data[0] + ">\n"
-                # fo.write(tmp)
-                # print("<INTEGER, ",data[0],">",sep="")
-                try:
-                    return data[1:]
-                except IndexError:
-                    return []
-            except IndexError:
-                result += "<INTEGER, " + data[0] + ">\n"
-                # tmp = "<INTEGER, " + data[0] + ">\n"
-                # fo.write(tmp)
-                # print("<INTEGER, ",data[0],">",sep="")
+                return data[1:]
+            except IndexError: # 0으로 끝나면
                 return []
-        elif data[0] in nonZero:
-            i = 1
-            try:
-                while data[i] in Digits:
-                    i+=1
-            except IndexError:
-                result += "<INTEGER, " + data[0:i] + ">\n"
-                # tmp = "<INTEGER, " + data[0:i] + ">\n"
-                # fo.write(tmp)
-                # print("<INTEGER, ",data[0:i],">",sep="")
-                return []
-            result += "<INTEGER, " + data[0:i] + ">\n"
-            # tmp = "<INTEGER, " + data[0:i] + ">\n"
-            # fo.write(tmp)
-            # print("<INTEGER, ",data[0:i],">",sep="")
-            return data[i:]
-        
-        elif data[0]=='-':
-            if data[1] in nonZero:
+
+        elif data[0]=='-': # (T0,-)->T2
+            if data[1] in nonZero: # (T2,nonZero)->T3
                 i = 2
                 try:
-                    while data[i] in Digits:
+                    while data[i] in Digits: # (T3,digit)->T4 / (T4.digit)->T4
                         i += 1
-                except IndexError:
+                except IndexError: # 끝까지 digit이면
                     result += "<INTEGER, " + data[0:i] + ">\n"
-                    # tmp = "<INTEGER, " + data[0:i] + ">\n"
-                    # fo.write(tmp)
-                    # print("<INTEGER, ",data[0:i],">",sep="")
                     return []
+                # digit이 아닌 다른게 오면
                 result += "<INTEGER, " + data[0:i] + ">\n"
-                # tmp = "<INTEGER, " + data[0:i] + ">\n"
-                # fo.write(tmp)
-                # print("<INTEGER, ",data[0:i],">",sep="")
-                return data[i:]
+                return data[i:]        
+
+        elif data[0] in nonZero: # (T0,nonZero)->T3
+            i = 1
+            try:
+                while data[i] in Digits: # (T3,digit)->T4 / (T4,digit)->T4
+                    i+=1
+            except IndexError: # 끝까지 digit이면
+                result += "<INTEGER, " + data[0:i] + ">\n"
+                return []
+            # digit이 아닌 다른게 오면
+            result += "<INTEGER, " + data[0:i] + ">\n"
+            return data[i:]
+        
         return data
     except IndexError:
         return data
@@ -98,24 +81,25 @@ def integer_scanner(data):
 def character_scanner(data):
     global result
     try:
-        if data[0]=='\'':
+        if data[0]=='\'': # (T0,')->T1
             try:
-                if data[1]=='\\':
-                    if data[2] in Escape:
-                        if data[3] == '\'':
+                if data[1]=='\\': # (T1,\)->T3
+                    if data[2] in Escape: # (T3,escape)->T4
+                        if data[3] == '\'': # (T4,')->T5
                             result += "<CHARACTER, " + data[1:3] + ">\n"
-                            # tmp = "<CHARACTER, " + data[1:3] + ">\n"
-                            # fo.write(tmp)
-                            # print("<CHARACTER, ", data[1:3],">",sep="")
                             try:
                                 return data[4:]
                             except IndexError:
                                 return []
                     else:
                         result = "input Error : character1"
-                        # print("input Error : no character")
                         return []
+                # if data[1] in "'\"\\":
+                #     result = "input Error : character "
                 elif data[2]=='\'':
+                    if data[1] in "'\"\\":
+                        result = "input Error : character4"
+                        return []
                     result += "<CHARACTER, " + data[1] + ">\n"
                     # print("<CHARACTER, ",data[1], ">", sep="")
                     try:
@@ -177,7 +161,8 @@ def id_scanner(data):
                 result += "<ID, " + data[0:i] + ">\n"
                 # print("<ID, ",data[0:i],">",sep="")
                 return []
-            print("<ID, ",data[0:i],">",sep="")
+            result += "<ID, " + data[0:i] + ">\n"
+            # print("<ID, ",data[0:i],">",sep="")
             return data[i:]
         return data
     except IndexError:
@@ -413,7 +398,6 @@ def semi_scanner(data):
     except IndexError:
         return data
 
-
 def bracket_scanner(data):
     global result
     try:
@@ -462,7 +446,6 @@ def bracket_scanner(data):
         return data
     except IndexError:
         return data
-
 
 def comma_scanner(data):
     global result

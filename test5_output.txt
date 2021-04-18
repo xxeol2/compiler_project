@@ -1,0 +1,23 @@
+<INT>
+<ID, main>
+<LPAREN>
+<RPAREN>
+<LSCOPE>
+<CHAR>
+<ID, if123>
+<ASSIGN>
+<CHARACTER, 1>
+<SEMI>
+<INT>
+<INTEGER, 0>
+<ID, a>
+<ASSIGN>
+<ID, a>
+<ARITH, +>
+<INTEGER, -1>
+<SEMI>
+<RETURN>
+<ARITH, ->
+<INTEGER, 0>
+<SEMI>
+<RSCOPE>
