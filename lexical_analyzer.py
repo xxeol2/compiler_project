@@ -9,8 +9,8 @@ data = fi.read()
 
 fo = open(s[:-5]+"_output.txt",'w') #output file
 
-result = ""
-lineNum= 1
+result = "" #ouput txt에 쓰여질 문자열
+lineNum= 1 #ERROR 몇번째 line에서 발생했는지 알기 위한 variable
 
 ####### nonZero(1..9) / Digits(0..9) / letters(a..zA..Z) / Escape 선언 #######
 nonZero = list(range(ord('1'),ord('9')+1))
@@ -34,6 +34,7 @@ def isSpace(data):
         return True
     return False
 
+# 공백 잘라주는 scanner
 def whiteSpace_scanner(data):
     if isSpace(data):
         try:
@@ -261,7 +262,6 @@ def keyword_scanner(data):
     except IndexError:
         return data
 
-
 # <ARITH> <ASSIGN> <COMP> 토큰 판별 scanner
 def operator_scanner(data):
     global result
@@ -356,7 +356,6 @@ def semi_scanner(data):
     try:
         if data[0]==';':
             result += "<SEMI>\n"
-            # print("<SEMI>")
             try:
                 return data[1:]
             except IndexError:
@@ -365,47 +364,42 @@ def semi_scanner(data):
     except IndexError:
         return data
 
+# 괄호 토큰 판별 scanner (<LPAREN> <RPAREN> <LSCOPE> <RSCOPE> <LARR> <RARR>)
 def bracket_scanner(data):
     global result
     try:
         if data[0]=='{':
             result += "<LSCOPE>\n"
-            # print("<LSCOPE>")
             try:
                 return data[1:]
             except IndexError:
                 return []
         elif data[0]=='}':
             result += "<RSCOPE>\n"
-            # print("<RSCOPE>")
             try:
                 return data[1:]
             except IndexError:
                 return []
         elif data[0]=='(':
             result += "<LPAREN>\n"
-            # print("<LPAREN>")
             try:
                 return data[1:]
             except IndexError:
                 return []
         elif data[0]==')':
             result += "<RPAREN>\n"
-            # print("<RPAREN>")
             try:
                 return data[1:]
             except IndexError:
                 return []
         elif data[0]=='[':
             result += "<LARR>\n"
-            # print("<LARR>")
             try:
                 return data[1:]
             except IndexError:
                 return []
         elif data[0]==']':
             result += "<RARR>\n"
-            # print("<RARR>")
             try:
                 return data[1:]
             except IndexError:
@@ -414,12 +408,12 @@ def bracket_scanner(data):
     except IndexError:
         return data
 
+# <COMMA> 토큰 판별 scanner
 def comma_scanner(data):
     global result
     try:
         if data[0]==',':
             result += "<COMMA>\n"
-            # print("<COMMA>")
             try:
                 return data[1:]
             except IndexError:
@@ -428,41 +422,16 @@ def comma_scanner(data):
     except IndexError:
         return data
 
-def scanner(data):
-    # data = comma_scanner(arr_scanner(paren_scanner(scope_scanner(semi_scanner(operator_scanner(literal_scanner(character_scanner(integer_scanner(id_scanner(keyword_scanner(whiteSpace_scanner(data))))))))))))
-    data = integer_scanner(data)
-    return data
 
 def test(data):
     data = comma_scanner(bracket_scanner(semi_scanner(operator_scanner(id_scanner(literal_scanner(character_scanner(integer_scanner(keyword_scanner(whiteSpace_scanner(data))))))))))
-    # data = character_scanner(integer_scanner(whiteSpace_scanner(data)))
     try:
         test(data)
     except IndexError:
         return 0
 
 
-
-# data = input()
-# test(data)
-
 test(data)
 fo.write(result)
 fi.close()
 fo.close()
-
-# f = open('test.java','r')
-
-# def main():
-#     data = input()
-#     test(data)
-
-# if __name__ == "__main__":
-#     main()
-
-
-
-#integer_scanner(data)
-#character_scanner(data)
-# integer_scanner(whiteSpace_scanner(integer_scanner(data)))
-    
