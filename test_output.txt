@@ -1,1 +1,1 @@
-ERROR) character format error (line 2)
+ERROR) input error (line 1)

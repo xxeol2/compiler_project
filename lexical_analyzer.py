@@ -341,10 +341,10 @@ def operator_scanner(data):
                     except IndexError:
                         return []
                 else: # <COMP> T5 format error
-                    result = result = "ERROR) comparison operator format error (line " + str(lineNum) +")"
+                    result = "ERROR) comparison operator format error (line " + str(lineNum) +")"
                     return []
             except IndexError:
-                print("input Error : !")
+                result = "ERROR) comparison operator format error (line " + str(lineNum) +")"
                 return []
         return data
     except IndexError:
@@ -424,11 +424,14 @@ def comma_scanner(data):
 
 
 def test(data):
+    global result
     data = comma_scanner(bracket_scanner(semi_scanner(operator_scanner(id_scanner(literal_scanner(character_scanner(integer_scanner(keyword_scanner(whiteSpace_scanner(data))))))))))
     try:
         test(data)
     except IndexError:
         return 0
+    except:
+        result =  "ERROR) input error (line " + str(lineNum) +")"
 
 
 test(data)
