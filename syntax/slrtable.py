@@ -41,11 +41,12 @@ slrTable = [
     },
     # STATE 10
     {
-        "assign" : "s15"
+        "assign" : "s15",
+        "semi" : "s13"
     },
     # STATE 11
     {
-
+        "semi" : "s16"
     },
     # STATE 12
     {
@@ -62,7 +63,10 @@ slrTable = [
     },
     # STATE 15
     {
-        "id" : "s28"
+        "id" : "s28",
+        "literal" : "s22",
+        "character": "s23",
+        "boolstr": "s24"
     },
     # STATE 16
     {
@@ -83,31 +87,31 @@ slrTable = [
     },
     # STATE 20
     {
-
+        "semi" : "r7"
     },
     # STATE 21
     {
-
+        "semi" : "r8"
     },
     # STATE 22
     {
-
+        "semi" : "r9"
     },
     # STATE 23
     {
-
+        "semi" : "r10"
     },
     # STATE 24
     {
-
+        "semi" : "r11"
     },
     # STATE 25
     {
-
+        "semi" : "r13"
     },
     # STATE 26
     {
-
+        "semi" : "r15"
     },
     # STATE 27
     {
@@ -115,11 +119,11 @@ slrTable = [
     },
     # STATE 28
     {
-
+        "semi" : "r17"
     },
     # STATE 29
     {
-
+        "semi" : "r18"
     },
     # STATE 30
     {
@@ -180,15 +184,15 @@ slrTable = [
     },
     # STATE 44
     {
-
+        "semi" : "r12"
     },
     # STATE 45
     {
-
+        "semi" : "r14"
     },
     # STATE 46
     {
-
+        "semi" : "r16"
     },
     # STATE 47
     {
@@ -206,7 +210,7 @@ slrTable = [
     },
     # STATE 50
     {
-
+        "semi" : "s59"
     },
     # STATE 51
     {
@@ -222,7 +226,7 @@ slrTable = [
     },
     # STATE 54
     {
-
+        "assign" : "s15"
     },
     # STATE 55
     {
@@ -234,7 +238,10 @@ slrTable = [
     },
     # STATE 57
     {
-        "id" : "s28"
+        "id" : "s28",
+        "literal" : "s22",
+        "character": "s23",
+        "boolstr": "s24"
     },
     # STATE 58
     {
@@ -247,15 +254,16 @@ slrTable = [
     },
     # STATE 60
     {
-
+        "boolstr": "s67"
     },
     # STATE 61
     {
-
+        "boolstr": "s67"
     },
     # STATE 62
     {
-
+        "semi" : "s13",
+        "assign" : "s15"
     },
     # STATE 63
     {
@@ -267,7 +275,7 @@ slrTable = [
     },
     # STATE 65
     {
-
+        "semi" : "s70"
     },
     # STATE 66
     {
@@ -295,7 +303,7 @@ slrTable = [
     },
     # STATE 72
     {
-
+        "boolstr": "s76"
     },
     # STATE 73
     {
