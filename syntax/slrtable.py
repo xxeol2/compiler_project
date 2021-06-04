@@ -91,7 +91,8 @@ slrTable = [
     },
     # STATE 21
     {
-        "semi" : "r8"
+        "semi" : "r8",
+        "addsub" : "s35"
     },
     # STATE 22
     {
@@ -107,11 +108,14 @@ slrTable = [
     },
     # STATE 25
     {
-        "semi" : "r13"
+        "semi" : "r13",
+        "addsub" : "r13",
+        "multdiv" : ""
     },
     # STATE 26
     {
-        "semi" : "r15"
+        "semi" : "r15",
+        "addsub" : "r15"
     },
     # STATE 27
     {
@@ -119,11 +123,13 @@ slrTable = [
     },
     # STATE 28
     {
-        "semi" : "r17"
+        "semi" : "r17",
+        "addsub" : "r17"
     },
     # STATE 29
     {
-        "semi" : "r18"
+        "semi" : "r18",
+        "addsub" : "r18"
     },
     # STATE 30
     {
@@ -155,7 +161,7 @@ slrTable = [
     },
     # STATE 37
     {
-
+        "addsub" : "s35"
     },
     # STATE 38
     {
@@ -184,15 +190,18 @@ slrTable = [
     },
     # STATE 44
     {
-        "semi" : "r12"
+        "semi" : "r12",
+        "addsub" : "r12"
     },
     # STATE 45
     {
-        "semi" : "r14"
+        "semi" : "r14",
+        "addsub" : "r14"
     },
     # STATE 46
     {
-        "semi" : "r16"
+        "semi" : "r16",
+        "addsub" : "r16"
     },
     # STATE 47
     {
