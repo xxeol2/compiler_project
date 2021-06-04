@@ -14,5 +14,15 @@ terminal = {
     "WHILE" : "while",
     "CLASS" : "class",
     "RETURN" : "return",
-    "ARITH" : ""
+    "ADD" : "addsub",
+    "SUB" : "addsub",
+    "MUL": "muldiv",
+    "DIV": "muldiv",
+    "ASSIGN": "assign",
+    "COMP": "comp",
+    "SEMI": "semi",
+    "LSCOPE" : "lbrace",
+    "RSCOPE": "rbrace",
+    "LPAREN": "lparen",
+    "RPAREN": "rparen"
 }
