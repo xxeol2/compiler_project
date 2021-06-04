@@ -69,7 +69,8 @@ slrTable = [
         "literal" : "s22",
         "character": "s23",
         "boolstr": "s24",
-        "lparen" : "s27"
+        "lparen" : "s27",
+        "num": "s29"
     },
     # STATE 16
     {
@@ -126,7 +127,8 @@ slrTable = [
     # STATE 27
     {
         "id" : "s28",
-        "lparen" : "s27"
+        "lparen" : "s27",
+        "num": "s29"
     },
     # STATE 28
     {
@@ -165,12 +167,14 @@ slrTable = [
     # STATE 35
     {
         "id" : "s28",
-        "lparen" : "s27"
+        "lparen" : "s27",
+        "num": "s29"
     },
     # STATE 36
     {
         "id" : "s28",
-        "lparen" : "s27"
+        "lparen" : "s27",
+        "num": "s29"
     },
     # STATE 37
     {
@@ -271,7 +275,8 @@ slrTable = [
         "literal" : "s22",
         "character": "s23",
         "boolstr": "s24",
-        "lparen" : "s27"
+        "lparen" : "s27",
+        "num": "s29"
     },
     # STATE 58
     {
