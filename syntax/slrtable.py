@@ -21,11 +21,11 @@ slrTable = [
     },
     # STATE 5 
     {
-
+        "id":"s10"
     },
     # STATE 6 
     {
-
+        "id":"s12"
     },
     # STATE 7 
     {
@@ -41,7 +41,7 @@ slrTable = [
     },
     # STATE 10
     {
-
+        "assign" : "s15"
     },
     # STATE 11
     {
@@ -53,7 +53,8 @@ slrTable = [
     },
     # STATE 13
     {
-        "vtype": "r5"
+        "vtype": "r5",
+        "id" : "r5"
     },
     # STATE 14
     {
@@ -61,11 +62,12 @@ slrTable = [
     },
     # STATE 15
     {
-
+        "id" : "s28"
     },
     # STATE 16
     {
-        "vtype": "r6"
+        "vtype": "r6",
+        "id" : "r6"
     },
     # STATE 17
     {
@@ -77,7 +79,7 @@ slrTable = [
     },
     # STATE 19
     {
-
+        "id" : "s34"
     },
     # STATE 20
     {
@@ -109,7 +111,7 @@ slrTable = [
     },
     # STATE 27
     {
-
+        "id" : "s28"
     },
     # STATE 28
     {
@@ -141,11 +143,11 @@ slrTable = [
     },
     # STATE 35
     {
-
+        "id" : "s28"
     },
     # STATE 36
     {
-
+        "id" : "s28"
     },
     # STATE 37
     {
@@ -165,7 +167,8 @@ slrTable = [
     },
     # STATE 41
     {
-        "vtype": "s53"
+        "vtype": "s53",
+        "id" : "s54"
     },
     # STATE 42
     {
@@ -193,11 +196,13 @@ slrTable = [
     },
     # STATE 48
     {
-        "vtype": "s53"
+        "vtype": "s53",
+        "id" : "s54"
     },
     # STATE 49
     {
-        "vtype": "r26"
+        "vtype": "r26",
+        "id" : "r26"
     },
     # STATE 50
     {
@@ -213,7 +218,7 @@ slrTable = [
     },
     # STATE 53
     {
-
+        "id" : "s62"
     },
     # STATE 54
     {
@@ -221,7 +226,7 @@ slrTable = [
     },
     # STATE 55
     {
-
+        "id" : "s63"
     },
     # STATE 56
     {
@@ -229,7 +234,7 @@ slrTable = [
     },
     # STATE 57
     {
-
+        "id" : "s28"
     },
     # STATE 58
     {
@@ -237,7 +242,8 @@ slrTable = [
     },
     # STATE 59
     {
-        "vtype": "r27"
+        "vtype": "r27",
+        "id" : "r27"
     },
     # STATE 60
     {
@@ -297,7 +303,8 @@ slrTable = [
     },
     # STATE 74
     {
-        "vtype": "s53"
+        "vtype": "s53",
+        "id" : "s54"
     },
     # STATE 75
     {
@@ -309,7 +316,8 @@ slrTable = [
     },
     # STATE 77
     {
-        "vtype": "s53"
+        "vtype": "s53",
+        "id" : "s54"
     },
     # STATE 78
     {
@@ -321,15 +329,18 @@ slrTable = [
     },
     # STATE 80
     {
-        "vtype": "r34"
+        "vtype": "r34",
+        "id" : "r34"
     },
     # STATE 81
     {
-        "vtype": "r29"
+        "vtype": "r29",
+        "id" : "r29"
     },
     # STATE 82
     {
-        "vtype": "r28"
+        "vtype": "r28",
+        "id" : "r28"
     },
     # STATE 83
     {
@@ -337,7 +348,8 @@ slrTable = [
     },
     # STATE 84
     {
-        "vtype": "s53"
+        "vtype": "s53",
+        "id" : "s54"
     },
     # STATE 85
     {
@@ -345,6 +357,7 @@ slrTable = [
     },
     # STATE 86
     {
-        "vtype": "r33"
+        "vtype": "r33",
+        "id" : "r33"
     },
 ]
