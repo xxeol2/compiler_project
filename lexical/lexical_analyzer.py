@@ -270,25 +270,25 @@ def operator_scanner(data):
     global result
     try:
         if data[0]=='+': # <ARITH> (T0,+)->T1
-            result += "<ARITH, " + data[0] + ">\n"
+            result += "<ADD>\n"
             try:
                 return data[1:]
             except IndexError:
                 return []
         elif data[0]=='-': # <ARITH> (T0,-)->T2
-            result += "<ARITH, " + data[0] + ">\n" 
+            result += "<SUB>\n" 
             try:
                 return data[1:]
             except IndexError:
                 return []
         elif data[0]=='*': # <ARITH> (T0,*)->T3
-            result += "<ARITH, " + data[0] + ">\n" 
+            result += "<MUL>\n" 
             try:
                 return data[1:]
             except IndexError:
                 return []
         elif data[0]=='/': # <ARITH> (T0,/)->T4
-            result += "<ARITH, " + data[0] + ">\n" 
+            result += "<DIV>\n" 
             try:
                 return data[1:]
             except IndexError:

@@ -13,11 +13,11 @@
 <ID, a>
 <ASSIGN>
 <ID, a>
-<ARITH, +>
+<ADD>
 <INTEGER, -1>
 <SEMI>
 <RETURN>
-<ARITH, ->
+<SUB>
 <INTEGER, 0>
 <SEMI>
 <RSCOPE>

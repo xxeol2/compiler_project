@@ -1,8 +1,8 @@
 <INTEGER, 5>
-<ARITH, ->
+<SUB>
 <INTEGER, -10>
 <INTEGER, 4>
-<ARITH, +>
+<ADD>
 <INTEGER, -8>
 <ID, string>
 <STRING>

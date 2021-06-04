@@ -1,4 +1,4 @@
 <INTEGER, 0>
 <INTEGER, 10>
-<ARITH, ->
+<SUB>
 <INTEGER, 10>

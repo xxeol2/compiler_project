@@ -1,2 +1,2 @@
-<ARITH, ->
+<SUB>
 <INTEGER, 0>
