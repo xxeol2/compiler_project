@@ -35,24 +35,54 @@ slrTable = [
         "vtype": "r5"
     },
     # STATE 14
+    {
+        "vtype": "s18"
+    },
     # STATE 15
+    {
+        "vtype":"r6"
+    },
     # STATE 16
+    {
+        "vtype": "s5"
+    },
     # STATE 17
     # STATE 18
     # STATE 19
     # STATE 20
+    {
+        "vtype":"s5"
+    },
     # STATE 21
+    {
+        "vtype": "s5"
+    },
     # STATE 22
     # STATE 23
     # STATE 24
+    {
+        "vtype":"r29"
+    },
     # STATE 25
     # STATE 26
     # STATE 27
+    {
+        "vtype":"s36"
+    },
     # STATE 28
     # STATE 29
+    {
+        "vtype": "s37"
+    },
     # STATE 30
     # STATE 31
+    {
+        "vtype":"s36"
+    },
     # STATE 32
+    {
+        "vtype":"r20"  
+    },
     # STATE 33
     # STATE 34
     # STATE 35
@@ -62,11 +92,17 @@ slrTable = [
     # STATE 39
     # STATE 40
     # STATE 41
+    {
+        "vtype":"r21"
+    },
     # STATE 42
     # STATE 43
     # STATE 44
     # STATE 45
     # STATE 46
+    {
+        "vtype":"r13"
+    },
     # STATE 47
     # STATE 48
     # STATE 49
@@ -85,17 +121,38 @@ slrTable = [
     # STATE 62
     # STATE 63
     # STATE 64
+    {
+        "vtype":"s36"
+    },
     # STATE 65
     # STATE 66
+    {
+        "vtype":"s36"
+    },
     # STATE 67
     # STATE 68
     # STATE 69
+    {
+        "vtype":"r27"
+    },
     # STATE 70
+    {
+        "vtype":"r23"
+    },
     # STATE 71
+    {
+        "vtype":"r22"
+    },
     # STATE 72
     # STATE 73
+    {
+        "vtype": "s36"
+    },
     # STATE 74
     # STATE 75
+    {
+        "vtype":"r26"
+    }
     # STATE 76
     # STATE 77
     # STATE 78
