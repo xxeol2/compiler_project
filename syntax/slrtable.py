@@ -42,7 +42,8 @@ slrTable = [
     # STATE 10
     {
         "assign" : "s15",
-        "semi" : "s13"
+        "semi" : "s13",
+        "lparen" : "s14"
     },
     # STATE 11
     {
@@ -59,14 +60,16 @@ slrTable = [
     },
     # STATE 14
     {
-        "vtype": "s19"
+        "vtype": "s19",
+        "rparen" : "r21"
     },
     # STATE 15
     {
         "id" : "s28",
         "literal" : "s22",
         "character": "s23",
-        "boolstr": "s24"
+        "boolstr": "s24",
+        "lparen" : "s27"
     },
     # STATE 16
     {
@@ -79,7 +82,7 @@ slrTable = [
     },
     # STATE 18
     {
-
+        "rparen" : "s33"
     },
     # STATE 19
     {
@@ -110,26 +113,34 @@ slrTable = [
     {
         "semi" : "r13",
         "addsub" : "r13",
-        "multdiv" : ""
+        "multdiv" : "s36",
+        "rparen" : "r13"
     },
     # STATE 26
     {
         "semi" : "r15",
-        "addsub" : "r15"
+        "addsub" : "r15",
+        "multdiv" : "r15",
+        "rparen" : "r15"
     },
     # STATE 27
     {
-        "id" : "s28"
+        "id" : "s28",
+        "lparen" : "s27"
     },
     # STATE 28
     {
         "semi" : "r17",
-        "addsub" : "r17"
+        "addsub" : "r17",
+        "multdiv" : "r17",
+        "rparen" : "r17"
     },
     # STATE 29
     {
         "semi" : "r18",
-        "addsub" : "r18"
+        "addsub" : "r18",
+        "multdiv" : "r18",
+        "rparen" : "r18"
     },
     # STATE 30
     {
@@ -149,19 +160,22 @@ slrTable = [
     },
     # STATE 34
     {
-
+        "rparen" : "r23"
     },
     # STATE 35
     {
-        "id" : "s28"
+        "id" : "s28",
+        "lparen" : "s27"
     },
     # STATE 36
     {
-        "id" : "s28"
+        "id" : "s28",
+        "lparen" : "s27"
     },
     # STATE 37
     {
-        "addsub" : "s35"
+        "addsub" : "s35",
+        "rparen" : "s46"
     },
     # STATE 38
     {
@@ -182,7 +196,7 @@ slrTable = [
     },
     # STATE 42
     {
-
+        "rparen" : "r20"
     },
     # STATE 43
     {
@@ -191,17 +205,23 @@ slrTable = [
     # STATE 44
     {
         "semi" : "r12",
-        "addsub" : "r12"
+        "addsub" : "r12",
+        "multdiv" : "s36",
+        "rparen" : "r12"
     },
     # STATE 45
     {
         "semi" : "r14",
-        "addsub" : "r14"
+        "addsub" : "r14",
+        "multdiv" : "r14",
+        "rparen" : "r14"
     },
     # STATE 46
     {
         "semi" : "r16",
-        "addsub" : "r16"
+        "addsub" : "r16",
+        "multdiv" : "r16",
+        "rparen" : "r16"
     },
     # STATE 47
     {
@@ -223,11 +243,11 @@ slrTable = [
     },
     # STATE 51
     {
-
+        "lparen" : "s60"
     },
     # STATE 52
     {
-
+        "lparen" : "s61"
     },
     # STATE 53
     {
@@ -250,7 +270,8 @@ slrTable = [
         "id" : "s28",
         "literal" : "s22",
         "character": "s23",
-        "boolstr": "s24"
+        "boolstr": "s24",
+        "lparen" : "s27"
     },
     # STATE 58
     {
@@ -276,7 +297,7 @@ slrTable = [
     },
     # STATE 63
     {
-
+        "rparen" : "r23"
     },
     # STATE 64
     {
@@ -288,19 +309,19 @@ slrTable = [
     },
     # STATE 66
     {
-
+        "rparen" : "s71"
     },
     # STATE 67
     {
-
+        "rparen" : "r31"
     },
     # STATE 68
     {
-
+        "rparen" : "s73"
     },
     # STATE 69
     {
-
+        "rparen" : "r22"
     },
     # STATE 70
     {
@@ -325,11 +346,11 @@ slrTable = [
     },
     # STATE 75
     {
-
+        "rparen" : "r30"
     },
     # STATE 76
     {
-
+        "rparen" : "r32"
     },
     # STATE 77
     {
