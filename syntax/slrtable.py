@@ -58,7 +58,8 @@ slrTable = [
         "vtype": "r5",
         "id" : "r5",
         "rbrace": "r5",
-        "if" : "r5"
+        "if" : "r5",
+        "while" : "r5"
     },
     # STATE 14
     {
@@ -79,7 +80,8 @@ slrTable = [
         "vtype": "r6",
         "id" : "r6",
         "rbrace": "r6",
-        "if" : "r6"
+        "if" : "r6",
+        "while" : "r6"
     },
     # STATE 17
     {
@@ -206,7 +208,8 @@ slrTable = [
         "vtype": "s53",
         "id" : "s54",
         "rbrace": "r25",
-        "if" : "s51"
+        "if" : "s51",
+        "while" : "s52"
     },
     # STATE 42
     {
@@ -246,14 +249,16 @@ slrTable = [
         "vtype": "s53",
         "id" : "s54",
         "rbrace": "r25",
-        "if" : "s51"
+        "if" : "s51",
+        "while" : "s52"
     },
     # STATE 49
     {
         "vtype": "r26",
         "id" : "r26",
         "rbrace": "r26",
-        "if" : "r26"
+        "if" : "r26",
+        "while" : "r26"
     },
     # STATE 50
     {
@@ -301,7 +306,8 @@ slrTable = [
         "vtype": "r27",
         "id" : "r27",
         "rbrace": "r27",
-        "if" : "r27"
+        "if" : "r27",
+        "while" : "r27"
     },
     # STATE 60
     {
@@ -332,15 +338,18 @@ slrTable = [
     },
     # STATE 66
     {
-        "rparen" : "s71"
+        "rparen" : "s71",
+        "comp" : "s72"
     },
     # STATE 67
     {
-        "rparen" : "r31"
+        "rparen" : "r31",
+        "comp" : "r31"
     },
     # STATE 68
     {
-        "rparen" : "s73"
+        "rparen" : "s73",
+        "comp" : "s72"
     },
     # STATE 69
     {
@@ -367,22 +376,26 @@ slrTable = [
         "vtype": "s53",
         "id" : "s54",
         "rbrace": "r25",
-        "if" : "s51"
+        "if" : "s51",
+        "while" : "s52"
     },
     # STATE 75
     {
-        "rparen" : "r30"
+        "rparen" : "r30",
+        "comp" : "r30"
     },
     # STATE 76
     {
-        "rparen" : "r32"
+        "rparen" : "r32",
+        "comp" : "r32"
     },
     # STATE 77
     {
         "vtype": "s53",
         "id" : "s54",
         "rbrace": "r25",
-        "if" : "s51"
+        "if" : "s51",
+        "while" : "s52"
     },
     # STATE 78
     {
@@ -397,21 +410,25 @@ slrTable = [
         "vtype": "r34",
         "id" : "r34",
         "rbrace": "r34",
-        "if" : "r34"
+        "if" : "r34",
+        "while" : "r34",
+        "else" : "s83"
     },
     # STATE 81
     {
         "vtype": "r29",
         "id" : "r29",
         "rbrace": "r29",
-        "if" : "r29"
+        "if" : "r29",
+        "while" : "r29"
     },
     # STATE 82
     {
         "vtype": "r28",
         "id" : "r28",
         "rbrace": "r28",
-        "if" : "r28"
+        "if" : "r28",
+        "while" : "r28"
     },
     # STATE 83
     {
@@ -422,7 +439,8 @@ slrTable = [
         "vtype": "s53",
         "id" : "s54",
         "rbrace": "r25",
-        "if" : "s51"
+        "if" : "s51",
+        "while" : "s52"
     },
     # STATE 85
     {
@@ -433,6 +451,7 @@ slrTable = [
         "vtype": "r33",
         "id" : "r33",
         "rbrace": "r33",
-        "if" : "r33"
+        "if" : "r33",
+        "while" : "r33"
     },
 ]
