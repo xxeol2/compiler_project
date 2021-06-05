@@ -61,11 +61,11 @@ while True:
         # 현재 읽을 terminal을 terminal_list에서 꺼내와서, stack 최 상단 state와 match해 slr_table에서 다음 action을 꺼내온다
         action = slr_table[stack_state[-1]][terminal_list[index]]  
     except:
-        print("REJECT) slr테이블상에 해당하는 action값이 없습니다 : on line", index)
+        print("REJECT) slr 테이블상에 해당하는 action값이 없습니다 : on line", index+1)
         break
     if action == "acc":
         # acc가 들어왔는데, input이 남아있으면 reject
-        if index != len(terminal_list):
+        if index != len(terminal_list)-1:
             print("REJECT) input이 남아있습니다!")
         # 남은 input이 없으면 accept
         else:
@@ -98,5 +98,5 @@ while True:
         # LHS의 non_terminal을 stack_item의 마지막에 추가해준다
         stack_item.append(cfg_list[0])
         stack_state.append(slr_table[stack_state[-1]][cfg_list[0]])
-
+        
 fi.close()
