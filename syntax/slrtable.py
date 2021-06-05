@@ -1,4 +1,4 @@
-slrTable = [
+slr_table = [
     # STATE 0
     {
         "vtype" : "s5",

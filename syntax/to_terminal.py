@@ -1,4 +1,4 @@
-terminal = {
+to_terminal = {
     "INTEGER" : "num",
     "CHARACTER" : "character",
     "INT" : "vtype",
