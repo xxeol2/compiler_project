@@ -2,26 +2,51 @@ slrTable = [
     # STATE 0
     {
         "vtype" : "s5",
+        "class" : "s6",
+        "$" : "r4",
+        "CODE" : "1",
+        "VDECL" : "2",
+        "FDECL" : "3",
+        "CDECL" : "4"
     },
     # STATE 1
     {
-
+        "$" : "acc"
     },
     # STATE 2 
     {
-        "vtype": "s5"
+        "vtype": "s5",
+        "class" : "s6",
+        "$" : "r4",
+        "CODE" : "7",
+        "VDECL" : "2",
+        "FDECL" : "3",
+        "CDECL" : "4"
     },
     # STATE 3
     {
-        "vtype" : "s5"
+        "vtype" : "s5",
+        "class" : "s6",
+        "$" : "r4",
+        "CODE" : "8",
+        "VDECL" : "2",
+        "FDECL" : "3",
+        "CDECL" : "4"
     },
     # STATE 4 
     {
-        "vtype" : "s5"
+        "vtype" : "s5",
+        "class" : "s6",
+        "$" : "r4",
+        "CODE" : "9",
+        "VDECL" : "2",
+        "FDECL" : "3",
+        "CDECL" : "4"
     },
     # STATE 5 
     {
-        "id":"s10"
+        "id":"s10",
+        "ASSIGN" : "11"
     },
     # STATE 6 
     {
@@ -29,15 +54,15 @@ slrTable = [
     },
     # STATE 7 
     {
-
+        "$" : "r1"
     },
     # STATE 8 
     {
-
+        "$" : "r2"
     },
     # STATE 9 
     {
-
+        "$" : "r3"
     },
     # STATE 10
     {
@@ -59,12 +84,16 @@ slrTable = [
         "id" : "r5",
         "rbrace": "r5",
         "if" : "r5",
-        "while" : "r5"
+        "while" : "r5",
+        "return" : "r5",
+        "class" : "r5",
+        "$" : "r5"
     },
     # STATE 14
     {
         "vtype": "s19",
-        "rparen" : "r21"
+        "rparen" : "r21",
+        "ARG" :"18"
     },
     # STATE 15
     {
@@ -73,7 +102,11 @@ slrTable = [
         "character": "s23",
         "boolstr": "s24",
         "lparen" : "s27",
-        "num": "s29"
+        "num": "s29",
+        "RHS" : "20",
+        "EXPR" : "21",
+        "EXPR1" : "25",
+        "EXPR2" : "26"
     },
     # STATE 16
     {
@@ -81,12 +114,18 @@ slrTable = [
         "id" : "r6",
         "rbrace": "r6",
         "if" : "r6",
-        "while" : "r6"
+        "while" : "r6",
+        "return" : "r6",
+        "class" : "r6",
+        "$" : "r6"
     },
     # STATE 17
     {
         "vtype": "s5",
-        "rbrace": "r39"
+        "rbrace": "r39",
+        "VDECL" : "31",
+        "FDECL" : "32",
+        "ODECL" : "30"
     },
     # STATE 18
     {
@@ -135,7 +174,10 @@ slrTable = [
     {
         "id" : "s28",
         "lparen" : "s27",
-        "num": "s29"
+        "num": "s29",
+        "EXPR" : "37",
+        "EXPR1" : "25",
+        "EXPR2" : "26"
     },
     # STATE 28
     {
@@ -158,12 +200,18 @@ slrTable = [
     # STATE 31
     {
         "vtype": "s5",
-        "rbrace": "r39"
+        "rbrace": "r39",
+        "VDECL" : "31",
+        "FDECL" : "32",
+        "ODECL" : "39"
     },
     # STATE 32
     {
         "vtype": "s5",
-        "rbrace": "r39"
+        "rbrace": "r39",
+        "VDECL" : "31",
+        "FDECL" : "32",
+        "ODECL" : "40"
     },
     # STATE 33
     {
@@ -172,19 +220,23 @@ slrTable = [
     # STATE 34
     {
         "rparen" : "r23",
-        "comma" : "s43"
+        "comma" : "s43",
+        "MOREARGS" : "42"
     },
     # STATE 35
     {
         "id" : "s28",
         "lparen" : "s27",
-        "num": "s29"
+        "num": "s29",
+        "EXPR1" : "44",
+        "EXPR2" : "26"
     },
     # STATE 36
     {
         "id" : "s28",
         "lparen" : "s27",
-        "num": "s29"
+        "num": "s29",
+        "EXPR2" : "45"
     },
     # STATE 37
     {
@@ -193,7 +245,9 @@ slrTable = [
     },
     # STATE 38
     {
-        "vtype": "r36"
+        "vtype": "r36",
+        "class" : "r36",
+        "$" : "r36"
     },
     # STATE 39
     {
@@ -209,7 +263,12 @@ slrTable = [
         "id" : "s54",
         "rbrace": "r25",
         "if" : "s51",
-        "while" : "s52"
+        "while" : "s52",
+        "return" : "r25",
+        "VDECL" : "49",
+        "ASSIGN" : "50",
+        "BLOCK" : "47",
+        "STMT" : "48"
     },
     # STATE 42
     {
@@ -242,7 +301,8 @@ slrTable = [
     },
     # STATE 47
     {
-
+        "return" : "s57",
+        "RETURN" : "56"
     },
     # STATE 48
     {
@@ -250,7 +310,12 @@ slrTable = [
         "id" : "s54",
         "rbrace": "r25",
         "if" : "s51",
-        "while" : "s52"
+        "while" : "s52",
+        "return" : "r25",
+        "VDECL" : "49",
+        "ASSIGN" : "50",
+        "BLOCK" : "58",
+        "STMT" : "48"
     },
     # STATE 49
     {
@@ -258,7 +323,8 @@ slrTable = [
         "id" : "r26",
         "rbrace": "r26",
         "if" : "r26",
-        "while" : "r26"
+        "while" : "r26",
+        "return" : "r26"
     },
     # STATE 50
     {
@@ -274,7 +340,8 @@ slrTable = [
     },
     # STATE 53
     {
-        "id" : "s62"
+        "id" : "s62",
+        "ASSIGN" : "11"
     },
     # STATE 54
     {
@@ -295,11 +362,16 @@ slrTable = [
         "character": "s23",
         "boolstr": "s24",
         "lparen" : "s27",
-        "num": "s29"
+        "num": "s29",
+        "RHS" : "65",
+        "EXPR" : "21",
+        "EXPR1" : "25",
+        "EXPR2" : "26"
     },
     # STATE 58
     {
-        "rbrace": "r24"
+        "rbrace": "r24",
+        "return" : "r24"
     },
     # STATE 59
     {
@@ -307,15 +379,18 @@ slrTable = [
         "id" : "r27",
         "rbrace": "r27",
         "if" : "r27",
-        "while" : "r27"
+        "while" : "r27",
+        "return" : "r27"
     },
     # STATE 60
     {
-        "boolstr": "s67"
+        "boolstr": "s67",
+        "COND" : "66"
     },
     # STATE 61
     {
-        "boolstr": "s67"
+        "boolstr": "s67",
+        "COND" : "68"
     },
     # STATE 62
     {
@@ -325,12 +400,15 @@ slrTable = [
     # STATE 63
     {
         "rparen" : "r23",
-        "comma" : "s43"
+        "comma" : "s43",
+        "MOREARGS" : "69"
     },
     # STATE 64
     {
         "vtype": "r19",
-        "rbrace": "r19"
+        "rbrace": "r19",
+        "class" : "r19",
+        "$" : "r19"
     },
     # STATE 65
     {
@@ -365,7 +443,8 @@ slrTable = [
     },
     # STATE 72
     {
-        "boolstr": "s76"
+        "boolstr": "s76",
+        "COND1" : "75"
     },
     # STATE 73
     {
@@ -377,7 +456,12 @@ slrTable = [
         "id" : "s54",
         "rbrace": "r25",
         "if" : "s51",
-        "while" : "s52"
+        "while" : "s52",
+        "return" : "r25",
+        "VDECL" : "49",
+        "ASSIGN" : "50",
+        "BLOCK" : "78",
+        "STMT" : "48"
     },
     # STATE 75
     {
@@ -395,7 +479,12 @@ slrTable = [
         "id" : "s54",
         "rbrace": "r25",
         "if" : "s51",
-        "while" : "s52"
+        "while" : "s52",
+        "return" : "r25",
+        "VDECL" : "49",
+        "ASSIGN" : "50",
+        "BLOCK" : "79",
+        "STMT" : "48"
     },
     # STATE 78
     {
@@ -412,7 +501,9 @@ slrTable = [
         "rbrace": "r34",
         "if" : "r34",
         "while" : "r34",
-        "else" : "s83"
+        "else" : "s83",
+        "return" : "r34",
+        "ELSE" : "82"
     },
     # STATE 81
     {
@@ -420,7 +511,8 @@ slrTable = [
         "id" : "r29",
         "rbrace": "r29",
         "if" : "r29",
-        "while" : "r29"
+        "while" : "r29",
+        "return" : "r29"
     },
     # STATE 82
     {
@@ -428,7 +520,8 @@ slrTable = [
         "id" : "r28",
         "rbrace": "r28",
         "if" : "r28",
-        "while" : "r28"
+        "while" : "r28",
+        "return" : "r28"
     },
     # STATE 83
     {
@@ -440,7 +533,12 @@ slrTable = [
         "id" : "s54",
         "rbrace": "r25",
         "if" : "s51",
-        "while" : "s52"
+        "while" : "s52",
+        "return" : "r25",
+        "VDECL" : "49",
+        "ASSIGN" : "50",
+        "BLOCK" : "85",
+        "STMT" : "48"
     },
     # STATE 85
     {
@@ -452,6 +550,7 @@ slrTable = [
         "id" : "r33",
         "rbrace": "r33",
         "if" : "r33",
-        "while" : "r33"
+        "while" : "r33",
+        "return" : "r33"
     },
 ]
