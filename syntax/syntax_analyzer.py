@@ -47,7 +47,7 @@ index = 0
 
 while True:
     
-    if index == len(terminal_list)-1:
+    if index == len(terminal_list):
         break
 
     action = slr_table[stack_state[-1]][terminal_list[index]]
