@@ -8,6 +8,7 @@ slr_table = [
         "$" : "r4",
         "CODE" : 1,
         "VDECL" : 2,
+        "FDECL" : 3,
         "CDECL" : 4
     },
     # STATE 1
