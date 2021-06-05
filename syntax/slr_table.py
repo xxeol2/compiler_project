@@ -93,7 +93,7 @@ slr_table = [
     {
         "vtype": "s19",
         "rparen" : "r21",
-        "ARG" :"18"
+        "ARG" : 18
     },
     # STATE 15
     {
