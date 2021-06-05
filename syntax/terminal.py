@@ -24,5 +24,6 @@ terminal = {
     "LSCOPE" : "lbrace",
     "RSCOPE": "rbrace",
     "LPAREN": "lparen",
-    "RPAREN": "rparen"
+    "RPAREN": "rparen",
+    "COMMA": "comma"
 }
