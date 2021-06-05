@@ -1,3 +1,5 @@
+# slr_table.py
+
 slr_table = [
     # STATE 0
     {

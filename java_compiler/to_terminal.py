@@ -1,3 +1,5 @@
+# to_terminal.py
+
 to_terminal = {
     "INTEGER" : "num",
     "CHARACTER" : "character",

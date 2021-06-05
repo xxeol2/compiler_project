@@ -1,3 +1,6 @@
+# syntax_analyzer.py
+# 20193574 정설희
+
 from to_terminal import to_terminal
 from slr_table import slr_table
 from cfg import cfg
@@ -58,9 +61,8 @@ while True:
         # 현재 읽을 terminal을 terminal_list에서 꺼내와서, stack 최 상단 state와 match해 slr_table에서 다음 action을 꺼내온다
         action = slr_table[stack_state[-1]][terminal_list[index]]  
     except:
-        print("REJECT) on line", index)
+        print("REJECT) slr테이블상에 해당하는 action값이 없습니다 : on line", index)
         break
-    print("action", action)
     if action == "acc":
         # acc가 들어왔는데, input이 남아있으면 reject
         if index != len(terminal_list):
@@ -69,7 +71,6 @@ while True:
         else:
             print ("ACCEPT !!")
         break
-
 
     # shift 연산일 경우
     if action[0]=='s':
@@ -84,7 +85,6 @@ while True:
         reduce_num = int(action[1:])
         # 해당 cfg 문법을 꺼내서 cfg_list에 저장한다
         cfg_list = cfg[reduce_num]
-        print("cfg", cfg_list)
         # RHS가 ''일 경우,  pop하지 않는다
         if cfg_list[-1] != "''":
             cfg_num = len(cfg_list) - 1
