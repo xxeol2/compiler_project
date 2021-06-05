@@ -1,4 +1,3 @@
-from os import stat_result
 from to_terminal import to_terminal
 from slr_table import slr_table
 from cfg import cfg
@@ -49,10 +48,14 @@ while True:
     
     if index == len(terminal_list):
         break
-
-    action = slr_table[stack_state[-1]][terminal_list[index]]
+    try:
+        action = slr_table[stack_state[-1]][terminal_list[index]]  
+    except:
+        print("ERROR) invalid input : ", index)
+        break
     print("action", action)
     if action == "acc":
+        print ("ACCEPT !!")
         break
 
 
