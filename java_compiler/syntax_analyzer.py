@@ -55,14 +55,15 @@ index = 0
 while True:
     # input을 끝까지 읽었는데 acc가 나오지 않으면, while문 탈출해준다
     if index == len(terminal_list):
-        print("REJECT) not accept")
+        print("REJECT) input을 끝까지 읽었는데, acc가 나오지 않음")
         break
     try:
         # 현재 읽을 terminal을 terminal_list에서 꺼내와서, stack 최 상단 state와 match해 slr_table에서 다음 action을 꺼내온다
         action = slr_table[stack_state[-1]][terminal_list[index]]  
     except:
-        print("REJECT) slr 테이블상에 해당하는 action값이 없습니다 : on line", index+1)
-        break
+        if terminal_list[index] !="$":
+            print("REJECT) slr 테이블상에 해당하는 action값이 없습니다 : on line", index+1)
+            break
     if action == "acc":
         # acc가 들어왔는데, input이 남아있으면 reject
         if index != len(terminal_list)-1:

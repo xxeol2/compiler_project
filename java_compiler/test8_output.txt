@@ -1,0 +1,4 @@
+<INT>
+<ID, k>
+<ASSIGN>
+<INTEGER, 6>

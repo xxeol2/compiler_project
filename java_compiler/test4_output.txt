@@ -1,0 +1,12 @@
+<INT>
+<ID, k>
+<LSCOPE>
+<INT>
+<ID, a>
+<ASSIGN>
+<INTEGER, 3>
+<SEMI>
+<RETURN>
+<INTEGER, 0>
+<SEMI>
+<RSCOPE>

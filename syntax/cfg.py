@@ -1,3 +1,4 @@
+# cfg.py 
 cfg = [['START','CODE'],
 ['CODE', 'VDECL', 'CODE'], 
 ['CODE', 'FDECL', 'CODE'], 

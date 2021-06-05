@@ -1,0 +1,11 @@
+<INT>
+<ID, k>
+<LPAREN>
+<RPAREN>
+<LSCOPE>
+<INT>
+<ID, a>
+<ASSIGN>
+<INTEGER, 3>
+<SEMI>
+<RSCOPE>
