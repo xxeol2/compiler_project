@@ -4,10 +4,10 @@ slr_table = [
         "vtype" : "s5",
         "class" : "s6",
         "$" : "r4",
-        "CODE" : "1",
-        "VDECL" : "2",
-        "FDECL" : "3",
-        "CDECL" : "4"
+        "CODE" : 1,
+        "VDECL" : 2,
+        "FDECL" : 3,
+        "CDECL" : 4
     },
     # STATE 1
     {
@@ -18,35 +18,35 @@ slr_table = [
         "vtype": "s5",
         "class" : "s6",
         "$" : "r4",
-        "CODE" : "7",
-        "VDECL" : "2",
-        "FDECL" : "3",
-        "CDECL" : "4"
+        "CODE" : 7,
+        "VDECL" : 2,
+        "FDECL" : 3,
+        "CDECL" : 4
     },
     # STATE 3
     {
         "vtype" : "s5",
         "class" : "s6",
         "$" : "r4",
-        "CODE" : "8",
-        "VDECL" : "2",
-        "FDECL" : "3",
-        "CDECL" : "4"
+        "CODE" : 8,
+        "VDECL" : 2,
+        "FDECL" : 3,
+        "CDECL" : 4
     },
     # STATE 4 
     {
         "vtype" : "s5",
         "class" : "s6",
         "$" : "r4",
-        "CODE" : "9",
-        "VDECL" : "2",
-        "FDECL" : "3",
-        "CDECL" : "4"
+        "CODE" : 9,
+        "VDECL" : 2,
+        "FDECL" : 3,
+        "CDECL" : 4
     },
     # STATE 5 
     {
         "id":"s10",
-        "ASSIGN" : "11"
+        "ASSIGN" : 11
     },
     # STATE 6 
     {
@@ -103,10 +103,10 @@ slr_table = [
         "boolstr": "s24",
         "lparen" : "s27",
         "num": "s29",
-        "RHS" : "20",
-        "EXPR" : "21",
-        "EXPR1" : "25",
-        "EXPR2" : "26"
+        "RHS" : 20,
+        "EXPR" : 21,
+        "EXPR1" : 25,
+        "EXPR2" : 26
     },
     # STATE 16
     {
@@ -123,9 +123,9 @@ slr_table = [
     {
         "vtype": "s5",
         "rbrace": "r39",
-        "VDECL" : "31",
-        "FDECL" : "32",
-        "ODECL" : "30"
+        "VDECL" : 31,
+        "FDECL" : 32,
+        "ODECL" : 30
     },
     # STATE 18
     {
@@ -175,9 +175,9 @@ slr_table = [
         "id" : "s28",
         "lparen" : "s27",
         "num": "s29",
-        "EXPR" : "37",
-        "EXPR1" : "25",
-        "EXPR2" : "26"
+        "EXPR" : 37,
+        "EXPR1" : 25,
+        "EXPR2" : 26
     },
     # STATE 28
     {
@@ -201,17 +201,17 @@ slr_table = [
     {
         "vtype": "s5",
         "rbrace": "r39",
-        "VDECL" : "31",
-        "FDECL" : "32",
-        "ODECL" : "39"
+        "VDECL" : 31,
+        "FDECL" : 32,
+        "ODECL" : 39
     },
     # STATE 32
     {
         "vtype": "s5",
         "rbrace": "r39",
-        "VDECL" : "31",
-        "FDECL" : "32",
-        "ODECL" : "40"
+        "VDECL" : 31,
+        "FDECL" : 32,
+        "ODECL" : 40
     },
     # STATE 33
     {
@@ -221,22 +221,22 @@ slr_table = [
     {
         "rparen" : "r23",
         "comma" : "s43",
-        "MOREARGS" : "42"
+        "MOREARGS" : 42
     },
     # STATE 35
     {
         "id" : "s28",
         "lparen" : "s27",
         "num": "s29",
-        "EXPR1" : "44",
-        "EXPR2" : "26"
+        "EXPR1" : 44,
+        "EXPR2" : 26
     },
     # STATE 36
     {
         "id" : "s28",
         "lparen" : "s27",
         "num": "s29",
-        "EXPR2" : "45"
+        "EXPR2" : 45
     },
     # STATE 37
     {
@@ -265,10 +265,10 @@ slr_table = [
         "if" : "s51",
         "while" : "s52",
         "return" : "r25",
-        "VDECL" : "49",
-        "ASSIGN" : "50",
-        "BLOCK" : "47",
-        "STMT" : "48"
+        "VDECL" : 49,
+        "ASSIGN" : 50,
+        "BLOCK" : 47,
+        "STMT" : 48
     },
     # STATE 42
     {
@@ -302,7 +302,7 @@ slr_table = [
     # STATE 47
     {
         "return" : "s57",
-        "RETURN" : "56"
+        "RETURN" : 56
     },
     # STATE 48
     {
@@ -312,10 +312,10 @@ slr_table = [
         "if" : "s51",
         "while" : "s52",
         "return" : "r25",
-        "VDECL" : "49",
-        "ASSIGN" : "50",
-        "BLOCK" : "58",
-        "STMT" : "48"
+        "VDECL" : 49,
+        "ASSIGN" : 50,
+        "BLOCK" : 58,
+        "STMT" : 48
     },
     # STATE 49
     {
@@ -341,7 +341,7 @@ slr_table = [
     # STATE 53
     {
         "id" : "s62",
-        "ASSIGN" : "11"
+        "ASSIGN" : 11
     },
     # STATE 54
     {
@@ -363,10 +363,10 @@ slr_table = [
         "boolstr": "s24",
         "lparen" : "s27",
         "num": "s29",
-        "RHS" : "65",
-        "EXPR" : "21",
-        "EXPR1" : "25",
-        "EXPR2" : "26"
+        "RHS" : 65,
+        "EXPR" : 21,
+        "EXPR1" : 25,
+        "EXPR2" : 26
     },
     # STATE 58
     {
@@ -385,12 +385,12 @@ slr_table = [
     # STATE 60
     {
         "boolstr": "s67",
-        "COND" : "66"
+        "COND" : 66
     },
     # STATE 61
     {
         "boolstr": "s67",
-        "COND" : "68"
+        "COND" : 68
     },
     # STATE 62
     {
@@ -401,7 +401,7 @@ slr_table = [
     {
         "rparen" : "r23",
         "comma" : "s43",
-        "MOREARGS" : "69"
+        "MOREARGS" : 69
     },
     # STATE 64
     {
@@ -444,7 +444,7 @@ slr_table = [
     # STATE 72
     {
         "boolstr": "s76",
-        "COND1" : "75"
+        "COND1" : 75
     },
     # STATE 73
     {
@@ -458,10 +458,10 @@ slr_table = [
         "if" : "s51",
         "while" : "s52",
         "return" : "r25",
-        "VDECL" : "49",
-        "ASSIGN" : "50",
-        "BLOCK" : "78",
-        "STMT" : "48"
+        "VDECL" : 49,
+        "ASSIGN" : 50,
+        "BLOCK" : 78,
+        "STMT" : 48
     },
     # STATE 75
     {
@@ -481,10 +481,10 @@ slr_table = [
         "if" : "s51",
         "while" : "s52",
         "return" : "r25",
-        "VDECL" : "49",
-        "ASSIGN" : "50",
-        "BLOCK" : "79",
-        "STMT" : "48"
+        "VDECL" : 49,
+        "ASSIGN" : 50,
+        "BLOCK" : 79,
+        "STMT" : 48
     },
     # STATE 78
     {
@@ -503,7 +503,7 @@ slr_table = [
         "while" : "r34",
         "else" : "s83",
         "return" : "r34",
-        "ELSE" : "82"
+        "ELSE" : 82
     },
     # STATE 81
     {
@@ -535,10 +535,10 @@ slr_table = [
         "if" : "s51",
         "while" : "s52",
         "return" : "r25",
-        "VDECL" : "49",
-        "ASSIGN" : "50",
-        "BLOCK" : "85",
-        "STMT" : "48"
+        "VDECL" : 49,
+        "ASSIGN" : 50,
+        "BLOCK" : 85,
+        "STMT" : 48
     },
     # STATE 85
     {
