@@ -1,0 +1,5 @@
+<INT>
+<ID, k>
+<ASSIGN>
+<INTEGER, 6>
+<SEMI>
